@@ -32,6 +32,7 @@ export default function App() {
   const [loaded] = useFonts({
     "Lato-Light": require("./assets/font/Lato-Light.ttf"),
     "Lato-LightItalic": require("./assets/font/Lato-LightItalic.ttf"),
+    "Lato-Italic": require("./assets/font/Lato-Italic.ttf"),
     "Lato-Regular": require("./assets/font/Lato-Regular.ttf"),
     "Lato-Bold": require("./assets/font/Lato-Bold.ttf"),
   });

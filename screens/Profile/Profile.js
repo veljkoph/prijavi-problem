@@ -18,7 +18,7 @@ const Profile = () => {
       return axiosPost({ url: "/profile-update", values: values });
     }
   );
-  console.log(user);
+
   return (
     <KeyboardAwareScrollView
       contentContainerStyle={profileStyle.container}

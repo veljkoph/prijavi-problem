@@ -1,7 +1,7 @@
 import { Alert } from "react-native";
 
 export const alertPrompt = (fun) =>
-  Alert.alert("Obaveštenje", "Da li ste sigurni?", [
+  Alert.alert("City UP", "Da li ste sigurni?", [
     {
       text: "Ne",
       style: "cancel",

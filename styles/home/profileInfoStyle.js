@@ -36,7 +36,7 @@ export const profileInfoStyle = StyleSheet.create({
   },
   subtitle: {
     fontSize: 15,
-    fontFamily: "Lato-LightItalic",
+    fontFamily: "Lato-Italic",
     color: Colors.green2,
   },
   image: {
