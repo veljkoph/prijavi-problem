@@ -4,6 +4,10 @@ export const RegisterSchema = yup.object({
     .string()
     .required("Obavezno polje")
     .min(6, "Email mora imati najmanje 6 karaktera"),
+  name: yup
+    .string()
+    .required("Obavezno polje")
+    .min(6, "Ime mora imati najmanje 6 karaktera"),
   password: yup
     .string()
     .required("Obavezno polje")

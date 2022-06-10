@@ -12,6 +12,7 @@ import { Colors } from "../../constants/Colors";
 import CreateTicket from "../../screens/CreateTicket/CreateTicket";
 import TicketStack from "../Stacks/TicketStack";
 import Survey from "../../screens/Survey/Survey";
+import SettingsStack from "../Stacks/SettingsStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -144,15 +145,15 @@ const BottomNavigator = () => {
       />
 
       <Tab.Screen
-        name="ProfileStack"
-        component={Profile}
+        name="SettingsStack"
+        component={SettingsStack}
         options={({ navigation }) => ({
           //  tabBarBadge: 3,
-          title: "Profil",
+          title: "Podešavanja",
           tabBarBadgeStyle: { backgroundColor: "yellow" },
           tabBarIcon: ({ color, focused, size }) => (
             <TouchableOpacity
-              onPress={() => navigation.navigate("ProfileStack")}
+              onPress={() => navigation.navigate("SettingsStack")}
               style={{
                 borderTopWidth: focused ? 2 : 0,
                 borderColor: Colors.greenDarkest,
@@ -163,7 +164,7 @@ const BottomNavigator = () => {
               }}
             >
               <Ionicons
-                name={focused ? "person-circle" : "person-circle-outline"}
+                name={focused ? "cog" : "cog-outline"}
                 size={27}
                 color={color}
               />

@@ -7,7 +7,7 @@ import DarkLineInput from "../../components/Global/DarkLineinput";
 import { RegisterSchema } from "../../constants/validations/RegisterValidationSchema";
 import { useMutation } from "react-query";
 import axios from "axios";
-
+import LottieView from "lottie-react-native";
 const Register = ({ navigation }) => {
   const { isLoading, isError, mutate, data, error, isSuccess } = useMutation(
     (values) => {
@@ -23,12 +23,24 @@ const Register = ({ navigation }) => {
       scrollEnabled={true}
       keyboardShouldPersistTaps="handled"
     >
+      <LottieView
+        style={{
+          height: 125,
+          width: 125,
+          marginBottom: 20,
+          alignSelf: "center",
+        }}
+        source={require("../../assets/animations/102118-eco-friendly-city.json")}
+        autoPlay={true}
+        loop={false}
+      />
       <Formik
         validationSchema={RegisterSchema}
         initialValues={{
           email: "",
           password: "",
           password_confirmation: "",
+          name: "",
         }}
         onSubmit={(values) => {
           mutate(values);
@@ -37,6 +49,14 @@ const Register = ({ navigation }) => {
         {(props) => (
           <View style={authStyle.form}>
             <DarkLineInput
+              onChangeText={props.handleChange("name")}
+              value={props.values.name}
+              label="IME"
+              error={props.errors.name}
+              onBlur={props.handleBlur("name")}
+              touched={props.touched.name}
+            />
+            <DarkLineInput
               onChangeText={props.handleChange("email")}
               value={props.values.email}
               label="EMAIL"
@@ -44,6 +64,7 @@ const Register = ({ navigation }) => {
               onBlur={props.handleBlur("email")}
               touched={props.touched.email}
             />
+
             <DarkLineInput
               onChangeText={props.handleChange("password")}
               value={props.values.password}

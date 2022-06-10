@@ -3,18 +3,20 @@ import { Colors } from "../../constants/Colors";
 
 export const authStyle = StyleSheet.create({
   container: {
-    paddingVertical: 50,
+    paddingVertical: 80,
     paddingHorizontal: 20,
     backgroundColor: Colors.white,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "row",
+    justifyContent: "space-between",
+    flexDirection: "column",
     height: "100%",
+    backgroundColor: Colors.white,
   },
   form: {
     alignSelf: "flex-start",
+    width: "100%",
   },
   background: {
     height: "100%",
