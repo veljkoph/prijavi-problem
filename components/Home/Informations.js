@@ -9,8 +9,9 @@ import axiosFetch from "../../services/axiosFetch";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import InformationCard from "./InformationCard";
 import DotLoader from "../Animations/DotLoader";
+import UserInfo from "./UserInfo";
 
-const Informations = () => {
+const Informations = ({ navigation }) => {
   const fetchInformations = async ({ pageParam = 1 }) => {
     const res = await fetch(`${BASE_URL}/news?page=${pageParam}`, {
       headers: {
@@ -39,14 +40,6 @@ const Informations = () => {
 
   return (
     <View style={informationsStyle.container}>
-      <Text style={informationsStyle.title}>INFORMACIJE</Text>
-      <LinearGradient
-        colors={Gradient.orangeGradient}
-        start={[0.1, 0.9]}
-        end={[1, 0]}
-        location={[1, 0]}
-        style={informationsStyle.gradientLine}
-      />
       <FlatList
         refreshControl={
           <RefreshControl
@@ -59,17 +52,32 @@ const Informations = () => {
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item, index) => index.toString()}
         onEndReached={hasNextPage && fetchNextPage}
+        ListHeaderComponent={
+          <>
+            <UserInfo navigation={navigation} />
+            <Text style={informationsStyle.title}>INFORMACIJE</Text>
+            <LinearGradient
+              colors={Gradient.orangeGradient}
+              start={[0.1, 0.9]}
+              end={[1, 0]}
+              location={[1, 0]}
+              style={informationsStyle.gradientLine}
+            />
+          </>
+        }
         ListEmptyComponent={!isLoading ? null : <DotLoader />}
         ListFooterComponent={isFetchingNextPage && <DotLoader />}
         ListHeaderComponentStyle={{
           paddingHorizontal: 0,
         }}
         contentContainerStyle={{
-          paddingBottom: 214,
+          paddingBottom: 84,
         }}
         onEndReachedThreshold={0}
         data={data?.pages?.map((page) => page?.data).flat()}
-        renderItem={({ item }) => <InformationCard item={item} />}
+        renderItem={({ item }) => (
+          <InformationCard item={item} navigation={navigation} />
+        )}
       />
     </View>
   );

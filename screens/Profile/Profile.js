@@ -1,21 +1,26 @@
 import React from "react";
-import axios from "axios";
+//components
 import DarkLineInput from "../../components/Global/DarkLineinput";
-import { BASE_URL } from "@env";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Formik } from "formik";
 import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
+//style
 import { profileStyle } from "../../styles/profileStyle";
+//api
 import { useMutation } from "react-query";
 import axiosPost from "../../services/axiosPost";
 import { ProfileEditValidationSchema } from "../../constants/validations/ProfileEditValidationSchema";
+//context
 import useAuth from "../../hooks/useAuth";
+import ChangeImage from "../../components/Settings/ChangeImage";
 
 const Profile = () => {
-  const { user, setUser } = useAuth();
+  const { user, auth } = useAuth();
+  console.log(user);
   const { isLoading, isError, mutate, data, error, isSuccess } = useMutation(
-    (values) => {
-      return axiosPost({ url: "/profile-update", values: values });
+    async (values) => {
+      await axiosPost({ url: "/profile-update", values: values });
+      return auth();
     }
   );
 
@@ -27,11 +32,12 @@ const Profile = () => {
       scrollEnabled={true}
       keyboardShouldPersistTaps="handled"
     >
+      <ChangeImage />
       <Formik
         enableReinitialize={true}
         validationSchema={ProfileEditValidationSchema}
         initialValues={{ name: user?.data?.name, address: user?.data?.address }}
-        onSubmit={async (values) => {
+        onSubmit={(values) => {
           mutate(values);
         }}
       >

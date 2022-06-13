@@ -11,12 +11,19 @@ const SettingsStack = () => {
       <Stack.Screen
         name="Settings"
         component={Settings}
-        options={{ headerShown: false }}
+        options={{
+          headerBackVisible: false,
+          title: "Podešavanja",
+        }}
       />
       <Stack.Screen
         name="Profile"
         component={Profile}
-        options={{ headerShown: false }}
+        options={{
+          headerBackVisible: true,
+          title: "Profil",
+          headerBackButtonMenuEnabled: true,
+        }}
       />
     </Stack.Navigator>
   );

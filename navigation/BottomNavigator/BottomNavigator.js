@@ -13,6 +13,7 @@ import CreateTicket from "../../screens/CreateTicket/CreateTicket";
 import TicketStack from "../Stacks/TicketStack";
 import Survey from "../../screens/Survey/Survey";
 import SettingsStack from "../Stacks/SettingsStack";
+import { globalStyle } from "../../styles/global/globalStyle";
 
 const Tab = createBottomTabNavigator();
 
@@ -23,9 +24,10 @@ const BottomNavigator = () => {
         tabBarStyle: {
           backgroundColor: Colors.white,
         },
-        tabBarActiveTintColor: Colors.greenDarkest,
-        tabBarInactiveTintColor: Colors.greenDarkest,
+        tabBarActiveTintColor: Colors.green2,
+        tabBarInactiveTintColor: Colors.green2,
         tabBarShowLabel: false,
+        headerShown: false,
         drawerItemStyle: {
           paddingVertical: 3,
         },
@@ -39,14 +41,11 @@ const BottomNavigator = () => {
           tabBarIcon: ({ color, focused, size }) => (
             <TouchableOpacity
               onPress={() => navigation.navigate("HomeStack")}
-              style={{
-                borderTopWidth: focused ? 2 : 0,
-                borderColor: Colors.greenDarkest,
-                height: "100%",
-                paddingTop: 10,
-                width: "90%",
-                alignItems: "center",
-              }}
+              style={
+                focused
+                  ? [globalStyle.borderFocusedMenu, globalStyle.paddingFocused]
+                  : globalStyle.paddingNotFocused
+              }
             >
               <Ionicons
                 color={color}
@@ -65,14 +64,11 @@ const BottomNavigator = () => {
           tabBarIcon: ({ focused, color, size }) => (
             <TouchableOpacity
               onPress={() => navigation.navigate("Survey")}
-              style={{
-                borderTopWidth: focused ? 2 : 0,
-                borderColor: Colors.greenDarkest,
-                height: "100%",
-                paddingTop: 10,
-                width: "90%",
-                alignItems: "center",
-              }}
+              style={
+                focused
+                  ? [globalStyle.borderFocusedMenu, globalStyle.paddingFocused]
+                  : globalStyle.paddingNotFocused
+              }
             >
               <Ionicons
                 color={color}
@@ -101,16 +97,16 @@ const BottomNavigator = () => {
                 borderRadius: 60,
                 alignItems: "center",
                 justifyContent: "center",
-                elevation: 3,
+                elevation: 2,
                 shadowColor: Colors.greenDark,
-                shadowOffset: { width: 0, height: 3 },
-                shadowOpacity: 0.3,
+                shadowOffset: { width: 0, height: 1 },
+                shadowOpacity: 0.2,
                 shadowRadius: 2,
               }}
             >
               <Image
                 source={require("../../assets/icons/plus.png")}
-                style={{ height: 40, width: 40 }}
+                style={{ height: 34, width: 34 }}
               />
             </TouchableOpacity>
           ),
@@ -125,14 +121,11 @@ const BottomNavigator = () => {
           tabBarIcon: ({ focused, color, size }) => (
             <TouchableOpacity
               onPress={() => navigation.navigate("Tickets")}
-              style={{
-                borderTopWidth: focused ? 2 : 0,
-                borderColor: Colors.greenDarkest,
-                height: "100%",
-                paddingTop: 10,
-                width: "90%",
-                alignItems: "center",
-              }}
+              style={
+                focused
+                  ? [globalStyle.borderFocusedMenu, globalStyle.paddingFocused]
+                  : globalStyle.paddingNotFocused
+              }
             >
               <Ionicons
                 color={color}
@@ -154,14 +147,11 @@ const BottomNavigator = () => {
           tabBarIcon: ({ color, focused, size }) => (
             <TouchableOpacity
               onPress={() => navigation.navigate("SettingsStack")}
-              style={{
-                borderTopWidth: focused ? 2 : 0,
-                borderColor: Colors.greenDarkest,
-                height: "100%",
-                paddingTop: 10,
-                width: "90%",
-                alignItems: "center",
-              }}
+              style={
+                focused
+                  ? [globalStyle.borderFocusedMenu, globalStyle.paddingFocused]
+                  : globalStyle.paddingNotFocused
+              }
             >
               <Ionicons
                 name={focused ? "cog" : "cog-outline"}

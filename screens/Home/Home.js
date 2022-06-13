@@ -7,9 +7,11 @@ import { Colors } from "../../constants/Colors";
 
 const Home = ({ navigation }) => {
   return (
-    <View style={{ backgroundColor: Colors.white, flex: 1, padding: 20 }}>
-      <UserInfo navigation={navigation} />
-      <Informations />
+    <View
+      style={{ backgroundColor: Colors.white, flex: 1, paddingHorizontal: 10 }}
+    >
+      {/* <UserInfo navigation={navigation} /> */}
+      <Informations navigation={navigation} />
     </View>
   );
 };

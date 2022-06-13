@@ -24,4 +24,18 @@ export const globalStyle = StyleSheet.create({
     color: Colors.white,
     fontSize: 14,
   },
+  borderFocusedMenu: {
+    borderTopWidth: 2,
+    borderColor: Colors.green2,
+    height: "100%",
+    paddingTop: 12,
+    width: "90%",
+    alignItems: "center",
+  },
+  paddingFocused: {
+    paddingTop: 8,
+  },
+  paddingNotFocused: {
+    padding: 10,
+  },
 });

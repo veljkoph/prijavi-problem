@@ -24,4 +24,27 @@ export const profileStyle = StyleSheet.create({
     borderRadius: 5,
     marginTop: 25,
   },
+  imageContainer: {
+    alignItems: "center",
+    width: "100%",
+    padding: 20,
+  },
+  imageBtn: {
+    position: "relative",
+    borderRadius: 50,
+  },
+  editImageIcon: {
+    marginBottom: 20,
+    position: "absolute",
+    bottom: -20,
+    left: 128,
+    color: Colors.greenDark,
+  },
+  image: {
+    width: 140,
+    height: 140,
+    borderRadius: 140 / 2,
+    borderWidth: 4,
+    borderColor: Colors.green2,
+  },
 });

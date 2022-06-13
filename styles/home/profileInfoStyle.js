@@ -10,6 +10,7 @@ export const profileInfoStyle = StyleSheet.create({
     position: "relative",
     backgroundColor: "#fff",
     borderRadius: 5,
+    marginTop: 10,
   },
   gradient: {
     position: "absolute",
