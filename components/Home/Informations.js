@@ -10,6 +10,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import InformationCard from "./InformationCard";
 import DotLoader from "../Animations/DotLoader";
 import UserInfo from "./UserInfo";
+import { globalStyle } from "../../styles/global/globalStyle";
 
 const Informations = ({ navigation }) => {
   const fetchInformations = async ({ pageParam = 1 }) => {
@@ -61,7 +62,7 @@ const Informations = ({ navigation }) => {
               start={[0.1, 0.9]}
               end={[1, 0]}
               location={[1, 0]}
-              style={informationsStyle.gradientLine}
+              style={globalStyle.gradientLine}
             />
           </>
         }

@@ -35,6 +35,12 @@ export const profileInfoStyle = StyleSheet.create({
     color: Colors.greenDarkest,
     marginVertical: 17,
   },
+  placeholderLine: {
+    backgroundColor: Colors.lightGrey2,
+    borderRadius: 10,
+    marginVertical: 17,
+    height: 24,
+  },
   subtitle: {
     fontSize: 15,
     fontFamily: "Lato-Italic",

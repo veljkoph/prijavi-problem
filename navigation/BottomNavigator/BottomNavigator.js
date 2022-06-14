@@ -3,9 +3,6 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { TouchableOpacity, Image } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import Feather from "react-native-vector-icons/Feather";
-//screens
-import Profile from "../../screens/Profile/Profile";
 //stacks
 import HomeStack from "../Stacks/HomeStack";
 import { Colors } from "../../constants/Colors";
@@ -37,7 +34,6 @@ const BottomNavigator = () => {
         name="HomeStack"
         component={HomeStack}
         options={({ navigation }) => ({
-          title: "Novosti",
           tabBarIcon: ({ color, focused, size }) => (
             <TouchableOpacity
               onPress={() => navigation.navigate("HomeStack")}

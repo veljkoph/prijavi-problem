@@ -5,7 +5,7 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { Formik } from "formik";
 import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
 //style
-import { profileStyle } from "../../styles/profileStyle";
+import { profileStyle } from "../../styles/profile/profileStyle";
 //api
 import { useMutation } from "react-query";
 import axiosPost from "../../services/axiosPost";

@@ -10,12 +10,7 @@ export const informationsStyle = StyleSheet.create({
     marginBottom: 4,
     fontFamily: "Lato-Regular",
   },
-  gradientLine: {
-    height: 3,
-    width: "100%",
-    borderTopEndRadius: 20,
-    marginBottom: 5,
-  },
+
   card: {
     paddingVertical: 15,
     borderRadius: 3,

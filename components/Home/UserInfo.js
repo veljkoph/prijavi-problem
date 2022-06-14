@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import { globalStyle } from "../../styles/global/globalStyle";
 import { profileInfoStyle } from "../../styles/home/profileInfoStyle";
 import LottieView from "lottie-react-native";
+
 const UserInfo = ({ navigation }) => {
   const { user } = useAuth();
 
@@ -11,7 +12,12 @@ const UserInfo = ({ navigation }) => {
     <View style={[globalStyle.shadow1, profileInfoStyle.container]}>
       <View style={profileInfoStyle.paddingText}>
         <Text style={profileInfoStyle.title}>Dobro došli,</Text>
-        <Text style={profileInfoStyle.name}>{user?.data?.name}</Text>
+        {!user?.data?.name ? (
+          <View style={profileInfoStyle.placeholderLine} />
+        ) : (
+          <Text style={profileInfoStyle.name}>{user?.data?.name}</Text>
+        )}
+
         <Text style={profileInfoStyle.subtitle}>
           Hvala Vam što održavate naš grad!
         </Text>

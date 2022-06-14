@@ -4,7 +4,7 @@ import axios from "react-native-axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import pickImage from "../../functions/pickImage";
-import { profileStyle } from "../../styles/profileStyle";
+import { profileStyle } from "../../styles/profile/profileStyle";
 import { Colors } from "../../constants/Colors";
 import { BASE_URL } from "@env";
 import useAuth from "../../hooks/useAuth";

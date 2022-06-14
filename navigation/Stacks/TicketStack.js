@@ -9,7 +9,10 @@ const TicketStack = () => {
       <Stack.Screen
         name="TicketStack"
         component={Tickets}
-        options={{ headerShown: false }}
+        options={{
+          headerBackVisible: true,
+          title: "Moje prijave",
+        }}
       />
     </Stack.Navigator>
   );

@@ -24,6 +24,12 @@ export const globalStyle = StyleSheet.create({
     color: Colors.white,
     fontSize: 14,
   },
+  gradientLine: {
+    height: 3,
+    width: "100%",
+    borderTopEndRadius: 20,
+    marginBottom: 5,
+  },
   borderFocusedMenu: {
     borderTopWidth: 2,
     borderColor: Colors.green2,
