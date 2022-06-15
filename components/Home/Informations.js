@@ -5,7 +5,6 @@ import { Gradient } from "../../constants/Gradients";
 import { informationsStyle } from "../../styles/home/informationsStyle";
 import { useInfiniteQuery } from "react-query";
 import { BASE_URL } from "@env";
-import axiosFetch from "../../services/axiosFetch";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import InformationCard from "./InformationCard";
 import DotLoader from "../Animations/DotLoader";

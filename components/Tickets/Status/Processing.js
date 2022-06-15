@@ -9,12 +9,14 @@ const Processing = () => {
     <View style={ticketStyle.statusContainer}>
       <View style={ticketStyle.iconWrapper}>
         <Ionicons
-          color={Colors.orange2}
+          color={Colors.blue}
           name="ellipsis-horizontal-circle-outline"
-          size={27}
+          size={20}
         />
       </View>
-      <Text style={{ color: Colors.orange2 }}>U OBRADI</Text>
+      <Text style={{ color: Colors.blue, fontFamily: "Lato-Regular" }}>
+        U OBRADI
+      </Text>
     </View>
   );
 };

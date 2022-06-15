@@ -5,27 +5,38 @@ import Rejected from "./Status/Rejected";
 import Resolved from "./Status/Resolved";
 import Processing from "./Status/Processing";
 import { useQuery } from "react-query";
-
-import { BASE_URL } from "@env";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import axios from "axios";
+import Arrived from "./Status/Arrived";
+import { globalStyle } from "../../styles/global/globalStyle";
 //statusi arrived, processing, resolved, rejected
 
 const TicketCard = ({ item }) => {
-  const { data, error, isLoading } = useQuery(["image"], () =>
-    axiosFetch({ url: `/${item.thumbnail.path}` })
+  const { data, error, isLoading } = useQuery(["image", item.thumbnail], () =>
+    axiosFetch(
+      { url: `/${item?.thumbnail?.path}` },
+      {
+        enabled: !ritem?.thumbnail,
+      }
+    )
   );
-  console.log(data?.data);
+
+  const components = {
+    resolved: <Resolved />,
+    rejected: <Rejected />,
+    processing: <Processing />,
+    arrived: <Arrived />,
+  };
+
+  const StatusComponent = () => (item ? components[item?.status] : null);
   return (
     <TouchableOpacity style={ticketStyle.card}>
       <Image
         style={ticketStyle.image}
         source={{ uri: `data:image/jpeg;base64,${data?.data}` }}
       />
-      <View>
+      <View style={globalStyle.spaceBetween}>
         <Text style={ticketStyle.title}>{item?.address}</Text>
-        <Text style={ticketStyle.date}>{item?.created_at}</Text>
-        <Processing />
+        <Text style={ticketStyle.subtitle}>{item?.short_description}</Text>
+        {components[item?.status] && <StatusComponent />}
       </View>
     </TouchableOpacity>
   );

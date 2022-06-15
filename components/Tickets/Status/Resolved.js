@@ -11,10 +11,12 @@ const Resolved = () => {
         <Ionicons
           color={Colors.green2}
           name="checkmark-circle-outline"
-          size={27}
+          size={20}
         />
       </View>
-      <Text style={{ color: Colors.green2 }}>OBRAĐENO</Text>
+      <Text style={{ color: Colors.green2, fontFamily: "Lato-Regular" }}>
+        OBRAĐENO
+      </Text>
     </View>
   );
 };

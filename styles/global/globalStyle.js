@@ -44,4 +44,7 @@ export const globalStyle = StyleSheet.create({
   paddingNotFocused: {
     padding: 10,
   },
+  spaceBetween: {
+    justifyContent: "space-between",
+  },
 });

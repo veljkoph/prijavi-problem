@@ -30,7 +30,7 @@ const DarkLineInput = (props) => {
           numberOfLines={props.numberOfLines}
           onChangeText={props.onChangeText}
           value={props.value}
-          style={darkLineInputStyle.field}
+          style={[darkLineInputStyle.field]}
           secureTextEntry={props.password && isHidden}
           onBlur={props.onBlur}
           editable={props.editable}

@@ -4,7 +4,7 @@ import { Colors } from "../../constants/Colors";
 export const ticketStyle = StyleSheet.create({
   card: {
     borderBottomColor: Colors.lightGrey,
-    borderBottomWidth: 2,
+    borderBottomWidth: 1,
     // marginVertical: 10,
     flexDirection: "row",
     paddingVertical: 17,
@@ -19,15 +19,16 @@ export const ticketStyle = StyleSheet.create({
     marginRight: 15,
   },
   title: {
-    fontSize: 15,
+    fontSize: 16,
     fontFamily: "Lato-Regular",
     flexWrap: "wrap",
-    maxWidth: "90%",
+    width: "90%",
   },
-  date: {
-    fontSize: 14,
-    fontFamily: "Lato-LightItalic",
+  subtitle: {
+    fontSize: 15,
+    fontFamily: "Lato-Light",
     marginVertical: 10,
+    width: "90%",
   },
   statusContainer: {
     flexDirection: "row",

@@ -7,4 +7,5 @@ export const Gradient = {
   purpleGradient: ["#a7acd9", "#9e8fb2"],
   creamGradient: ["#fff7ef", "#ffffff"],
   orangeGradient: [Colors.orange2, "#fff3e6"],
+  greenGradient: [Colors.green, Colors.greenLight],
 };

@@ -15,8 +15,9 @@ export const darkLineInputStyle = StyleSheet.create({
     color: Colors.greenDarkest,
     fontFamily: "Lato-Regular",
   },
+
   field: {
-    height: 42,
+    minHeight: 42,
     backgroundColor: "transparent",
     borderRadius: 7,
     borderBottomWidth: 2,

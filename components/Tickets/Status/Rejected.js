@@ -8,9 +8,11 @@ const Rejected = () => {
   return (
     <View style={ticketStyle.statusContainer}>
       <View style={ticketStyle.iconWrapper}>
-        <Ionicons color={Colors.red} name="close-circle-outline" size={27} />
+        <Ionicons color={Colors.red} name="close-circle-outline" size={20} />
       </View>
-      <Text style={{ color: Colors.red }}>ODBIJENO</Text>
+      <Text style={{ color: Colors.red, fontFamily: "Lato-Regular" }}>
+        ODBIJENO
+      </Text>
     </View>
   );
 };

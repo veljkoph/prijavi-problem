@@ -16,11 +16,10 @@ import ChangeImage from "../../components/Settings/ChangeImage";
 
 const Profile = () => {
   const { user, auth } = useAuth();
-  console.log(user);
+
   const { isLoading, isError, mutate, data, error, isSuccess } = useMutation(
     async (values) => {
-      await axiosPost({ url: "/profile-update", values: values });
-      return auth();
+      axiosPost({ url: "/tickets", values: values }).then(() => auth());
     }
   );
 

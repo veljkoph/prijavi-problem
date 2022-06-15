@@ -80,7 +80,7 @@ const BottomNavigator = () => {
         component={CreateTicket}
         options={({ navigation }) => ({
           title: "Prijavi problem",
-
+          headerShown: true,
           tabBarIcon: ({ focused, color, size }) => (
             <TouchableOpacity
               onPress={() => navigation.navigate("CreateTicket")}

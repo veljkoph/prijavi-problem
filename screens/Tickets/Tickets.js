@@ -9,6 +9,7 @@ import { BASE_URL } from "@env";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { globalStyle } from "../../styles/global/globalStyle";
 import TicketCard from "../../components/Tickets/TicketCard";
+import Empty from "../Global/Empty";
 
 const Tickets = ({ navigation }) => {
   const fetchTickets = async ({ pageParam = 1 }) => {
@@ -62,7 +63,13 @@ const Tickets = ({ navigation }) => {
             />
           </>
         }
-        ListEmptyComponent={!isLoading ? null : <DotLoader />}
+        ListEmptyComponent={
+          !isLoading ? (
+            <Empty text="Još uvek nema prijava, novu prijavu možete dodati klikom na dugme +" />
+          ) : (
+            <DotLoader />
+          )
+        }
         ListFooterComponent={isFetchingNextPage && <DotLoader />}
         ListHeaderComponentStyle={{
           paddingVertical: 20,
