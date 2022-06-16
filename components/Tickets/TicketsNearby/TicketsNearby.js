@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, ScrollView, ActivityIndicator } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  ActivityIndicator,
+  FlatList,
+  Dimensions,
+} from "react-native";
 import { useMutation, useQuery } from "react-query";
 import useGeoLocation from "../../../hooks/useGeoLocation";
 import LeafLoader from "../../../screens/Global/LeafLoader";
@@ -10,6 +17,8 @@ import { Colors } from "../../../constants/Colors";
 import { LinearGradient } from "expo-linear-gradient";
 import { Gradient } from "../../../constants/Gradients";
 import { globalStyle } from "../../../styles/global/globalStyle";
+import TicketCardLoader from "../Cards/TicketCardLoader";
+import NoTicketsNearby from "../Cards/NoTicketsNearby";
 //tickets-nearby
 //lat lng
 
@@ -38,16 +47,25 @@ const TicketsNearby = () => {
         location={[1, 0]}
         style={globalStyle.gradientLine}
       />
-      {isLoading && (
-        <ActivityIndicator
-          size="large"
-          color={Colors.purple}
-          style={{ marginTop: 20 }}
-        />
-      )}
-      {data?.data?.data?.map((ticket) => (
-        <TicketCard item={ticket} key={ticket.id} />
-      ))}
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+        horizontal={true}
+        keyExtractor={(item, index) => index.toString()}
+        ListEmptyComponent={
+          !isLoading ? <NoTicketsNearby /> : <TicketCardLoader />
+        }
+        contentContainerStyle={{
+          padding: 0,
+          margin: 0,
+          width: Dimensions.get("window").width,
+        }}
+        onEndReachedThreshold={0}
+        data={data?.data?.data}
+        renderItem={({ item }) => <TicketCard item={item} key={item.id} />}
+        r
+      />
+      {console.log(data?.data.data)}
     </View>
   );
 };

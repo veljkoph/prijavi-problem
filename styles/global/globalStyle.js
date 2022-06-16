@@ -14,8 +14,10 @@ export const globalStyle = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 3,
   },
-  row: {
+  rowSpaceBtw: {
     flexDirection: "row",
+    width: "100%",
+    justifyContent: "space-between",
   },
   column: {
     flexDirection: "column",

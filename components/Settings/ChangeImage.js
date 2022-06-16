@@ -25,9 +25,7 @@ const ChangeImage = () => {
         uri: Platform.OS === "ios" ? res.uri.replace("file://", "") : res.uri,
         type: `image/${fileType}`,
         name: `profilepicture0`,
-        //  base64: res.base64,
       });
-
       const response = await axios({
         method: "post",
         url: `${BASE_URL}/update-image`,

@@ -8,41 +8,79 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { useMutation } from "react-query";
+//components
 import DarkLineInput from "../../Global/DarkLineinput";
+import Ionicons from "react-native-vector-icons/Ionicons";
 import { Formik } from "formik";
-import { createticketStyle } from "../../../styles/createTicket/createticketStyle";
-import placeholder from "../../../assets/images/photoPlaceholder.jpeg";
-import { darkLineInputStyle } from "../../../styles/global/darkLineInputStyle";
 import pickImage from "../../../functions/pickImage";
-import axios from "axios";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { BASE_URL } from "@env";
+//style
+import { createticketStyle } from "../../../styles/createTicket/createticketStyle";
+import { Colors } from "../../../constants/Colors";
+import { globalStyle } from "../../../styles/global/globalStyle";
+
 const NewTicket = () => {
-  const [image, setImage] = useState(false);
-  const [imageSmall, setImageSmall] = useState(false);
-  const [imageSmall2, setImageSmall2] = useState(false);
-
-  //Bearer 20|8LzDaRoMv3gKWI96wWvgM8aDLm7koyRUtx9Xdbz6
-
+  const formData = new FormData();
   const { isLoading, isError, mutate, data, error, isSuccess } = useMutation(
     async (values) => {
-      axiosPost({ url: "/tickets", values: values }).then(() => "");
+      return axiosPost({ url: "/tickets", values: formData });
     }
   );
-
-  const imageHandler = async (imageset) => {
-    const img = await pickImage();
-    imageset(img);
+  const appendToForm = (values) => {
+    formData.append("address", values.address);
+    formData.append("description", values.description);
+    if (values.file1) {
+      const uriArr = values.file1.uri.split(".");
+      const fileType = uriArr[uriArr.length - 1];
+      formData.append("files[]", {
+        uri:
+          Platform.OS === "ios"
+            ? values.file1.uri.replace("file://", "")
+            : values.file1.uri,
+        type: `image/${fileType}`,
+        name: `profilepicture${values.file1.uri}`,
+      });
+    }
+    if (values.file2) {
+      const uriArr = values.file2.uri.split(".");
+      const fileType = uriArr[uriArr.length - 1];
+      formData.append("files[]", {
+        uri:
+          Platform.OS === "ios"
+            ? values.file2.uri.replace("file://", "")
+            : values.file2.uri,
+        type: `image/${fileType}`,
+        name: `profilepicture${values.file2.uri}`,
+      });
+    }
+    if (values.file3) {
+      const uriArr = values.file3.uri.split(".");
+      const fileType = uriArr[uriArr.length - 1];
+      formData.append("files[]", {
+        uri:
+          Platform.OS === "ios"
+            ? values.file3.uri.replace("file://", "")
+            : values.file3.uri,
+        type: `image/${fileType}`,
+        name: `profilepicture${values.file3.uri}`,
+      });
+    }
   };
-  console.log(error);
+
   return (
     <View>
       <Text style={createticketStyle.title}>KREIRAJ PRIJAVU</Text>
       <Formik
         // validationSchema={LoginSchema}
-        initialValues={{ address: "", description: "" }}
+        initialValues={{
+          address: "",
+          description: "",
+          file1: "",
+          file2: "",
+          file3: "",
+        }}
         onSubmit={(values) => {
-          mutate(values);
+          appendToForm(values);
+          mutate();
         }}
       >
         {(props) => (
@@ -65,41 +103,79 @@ const NewTicket = () => {
               touched={props.touched.description}
               numberOfLines={10}
             />
-            <Text style={createticketStyle.label}>DODAJ FOTOGRAFIJE</Text>
-
-            <TouchableOpacity onPress={() => imageHandler(setImage)}>
-              <Image
-                resizeMode="contain"
-                source={image ? { uri: image?.uri } : placeholder}
-                style={createticketStyle.imgLarge}
-              />
-            </TouchableOpacity>
-            <View style={createticketStyle.smallImgsWrapper}>
-              <TouchableOpacity
-                onPress={() => imageHandler(setImageSmall)}
-                style={createticketStyle.imgSmallWrapper}
-              >
+            <TouchableOpacity
+              activeOpacity={0.5}
+              style={createticketStyle.addPhotoWrapperLarge}
+              onPress={async () => {
+                const res = await pickImage();
+                props.setFieldValue("file1", res);
+              }}
+            >
+              {props.values.file1 ? (
                 <Image
                   resizeMode="contain"
-                  source={imageSmall ? { uri: imageSmall?.uri } : placeholder}
-                  style={createticketStyle.imgSmall}
+                  source={{ uri: props.values.file1.uri }}
+                  style={createticketStyle.imageLarge}
                 />
+              ) : (
+                <Ionicons
+                  color={Colors.darkGrey}
+                  name={"camera-outline"}
+                  size={57}
+                />
+              )}
+            </TouchableOpacity>
+
+            <View style={globalStyle.rowSpaceBtw}>
+              <TouchableOpacity
+                activeOpacity={0.5}
+                style={createticketStyle.addPhotoWrapper}
+                onPress={async () => {
+                  const res = await pickImage();
+                  props.setFieldValue("file2", res);
+                }}
+              >
+                {props.values.file2 ? (
+                  <Image
+                    resizeMode="contain"
+                    source={{ uri: props.values.file2.uri }}
+                    style={createticketStyle.imageLarge}
+                  />
+                ) : (
+                  <Ionicons
+                    color={Colors.darkGrey}
+                    name={"camera-outline"}
+                    size={57}
+                  />
+                )}
               </TouchableOpacity>
               <TouchableOpacity
-                onPress={() => imageHandler(setImageSmall2)}
-                style={createticketStyle.imgSmallWrapper}
+                activeOpacity={0.5}
+                style={createticketStyle.addPhotoWrapper}
+                onPress={async () => {
+                  const res = await pickImage();
+                  props.setFieldValue("file3", res);
+                }}
               >
-                <Image
-                  resizeMode="contain"
-                  source={imageSmall2 ? { uri: imageSmall2?.uri } : placeholder}
-                  style={createticketStyle.imgSmall}
-                />
+                {props.values.file3 ? (
+                  <Image
+                    resizeMode="contain"
+                    source={{ uri: props.values.file3.uri }}
+                    style={createticketStyle.imageLarge}
+                  />
+                ) : (
+                  <Ionicons
+                    color={Colors.darkGrey}
+                    name={"camera-outline"}
+                    size={57}
+                  />
+                )}
               </TouchableOpacity>
             </View>
-            {isLoading && <ActivityIndicator size="large" />}
 
+            {isLoading && <ActivityIndicator size="large" />}
             {isError ? (
-              <Text style={createticketStyle.text}>
+              <Text style={createticketStyle.error}>
                 {error?.response?.data?.message}
               </Text>
             ) : null}

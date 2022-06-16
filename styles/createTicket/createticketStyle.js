@@ -9,8 +9,9 @@ export const createticketStyle = StyleSheet.create({
   },
   nearbyTickets: {
     flex: 1,
-    alignItems: "center",
+    alignItems: "flex-start",
     justifyContent: "center",
+    width: "100%",
   },
   nearbyTicketsTitle: {
     fontFamily: "Lato-Regular",
@@ -55,27 +56,41 @@ export const createticketStyle = StyleSheet.create({
     fontFamily: "Lato-Regular",
     marginVertical: 10,
   },
-  imgLarge: {
+  addPhotoWrapperLarge: {
     width: "100%",
-    minHeight: 220,
-    borderRadius: 10,
-  },
-  smallImgsWrapper: {
-    flexDirection: "row",
-    width: "100%",
-    flex: 1,
-    borderRadius: 10,
-  },
-  imgSmall: {
-    width: "80%",
-    height: 140,
-    borderRadius: 10,
-  },
-  imgSmallWrapper: {
-    width: "50%",
+    backgroundColor: Colors.lightGrey,
+    borderRadius: 5,
+    paddingHorizontal: 45,
+    paddingVertical: 15,
     alignItems: "center",
-    justifyContent: "space-between",
-    marginTop: 10,
-    borderRadius: 10,
+    marginBottom: 10,
+    alignSelf: "center",
+  },
+  addPhotoWrapper: {
+    backgroundColor: Colors.lightGrey,
+    borderRadius: 5,
+    paddingHorizontal: 55,
+    paddingVertical: 15,
+    alignItems: "center",
+    width: "49%",
+    alignSelf: "center",
+  },
+  imageLarge: {
+    height: 100,
+    width: 100,
+  },
+  text: {
+    fontSize: 17,
+    textAlign: "center",
+    marginVertical: 10,
+    color: Colors.greenDark,
+    fontFamily: "Lato-Bold",
+  },
+  error: {
+    fontSize: 17,
+    textAlign: "center",
+    marginVertical: 10,
+    color: Colors.red,
+    fontFamily: "Lato-Bold",
   },
 });

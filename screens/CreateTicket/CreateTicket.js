@@ -1,4 +1,3 @@
-import { ScrollView } from "react-native";
 import React from "react";
 import TicketsNearby from "../../components/Tickets/TicketsNearby/TicketsNearby";
 import { createticketStyle } from "../../styles/createTicket/createticketStyle";

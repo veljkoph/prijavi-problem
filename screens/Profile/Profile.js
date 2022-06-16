@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 //components
 import DarkLineInput from "../../components/Global/DarkLineinput";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
@@ -13,15 +13,23 @@ import { ProfileEditValidationSchema } from "../../constants/validations/Profile
 //context
 import useAuth from "../../hooks/useAuth";
 import ChangeImage from "../../components/Settings/ChangeImage";
+//
+import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { BASE_URL } from "@env";
 
 const Profile = () => {
   const { user, auth } = useAuth();
 
   const { isLoading, isError, mutate, data, error, isSuccess } = useMutation(
     async (values) => {
-      axiosPost({ url: "/tickets", values: values }).then(() => auth());
+      return axiosPost({ url: "/profile-update", values: values });
     }
   );
+
+  useEffect(() => {
+    isSuccess && auth();
+  }, [isSuccess]);
 
   return (
     <KeyboardAwareScrollView

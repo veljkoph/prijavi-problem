@@ -1,22 +1,28 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { Colors } from "../../constants/Colors";
 
 export const ticketStyle = StyleSheet.create({
   card: {
     borderBottomColor: Colors.lightGrey,
     borderBottomWidth: 1,
-    // marginVertical: 10,
+    //  marginVertical: 10,
     flexDirection: "row",
     paddingVertical: 17,
     paddingHorizontal: 10,
     flex: 1,
-    width: "100%",
+    width: Dimensions.get("window").width - 20,
   },
   image: {
     height: 100,
     width: 100,
     borderRadius: 5,
     marginRight: 15,
+  },
+  noTicketsAnim: {
+    height: 90,
+    width: 90,
+    borderRadius: 5,
+    marginRight: 25,
   },
   title: {
     fontSize: 16,
