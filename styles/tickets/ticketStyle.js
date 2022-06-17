@@ -5,8 +5,8 @@ export const ticketStyle = StyleSheet.create({
   card: {
     borderBottomColor: Colors.lightGrey,
     borderBottomWidth: 1,
-    //  marginVertical: 10,
     flexDirection: "row",
+    justifyContent: "space-between",
     paddingVertical: 17,
     paddingHorizontal: 10,
     flex: 1,

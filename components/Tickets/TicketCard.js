@@ -12,7 +12,11 @@ import Arrived from "./Status/Arrived";
 import { useQuery } from "react-query";
 
 const TicketCard = ({ item }) => {
-  const { data, error, isLoading } = useQuery(
+  const {
+    data: image,
+    error,
+    isLoading,
+  } = useQuery(
     ["image", item?.thumbnail?.path],
     () => axiosFetch({ url: `/${item?.thumbnail?.path}` }),
     {
@@ -30,15 +34,19 @@ const TicketCard = ({ item }) => {
   const StatusComponent = () => (item ? status[item?.status] : null);
   return (
     <TouchableOpacity style={ticketStyle.card}>
-      <Image
-        style={ticketStyle.image}
-        source={{ uri: `data:image/jpeg;base64,${data?.data}` }}
-      />
       <View style={globalStyle.spaceBetween}>
         <Text style={ticketStyle.title}>{item?.address}</Text>
         <Text style={ticketStyle.subtitle}>{item?.short_description}</Text>
         {status[item?.status] && <StatusComponent />}
       </View>
+      <Image
+        style={ticketStyle.image}
+        source={
+          image?.data
+            ? { uri: `data:image/jpeg;base64,${image?.data}` }
+            : require("../../assets/images/photoPlaceholder.jpeg")
+        }
+      />
     </TouchableOpacity>
   );
 };

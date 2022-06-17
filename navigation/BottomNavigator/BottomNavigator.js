@@ -11,6 +11,7 @@ import TicketStack from "../Stacks/TicketStack";
 import Survey from "../../screens/Survey/Survey";
 import SettingsStack from "../Stacks/SettingsStack";
 import { globalStyle } from "../../styles/global/globalStyle";
+import SurveyStack from "../Stacks/SurveyStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -54,7 +55,7 @@ const BottomNavigator = () => {
       />
       <Tab.Screen
         name="Survey"
-        component={Survey}
+        component={SurveyStack}
         options={({ navigation }) => ({
           title: "Ankete",
           tabBarIcon: ({ focused, color, size }) => (

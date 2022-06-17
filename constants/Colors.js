@@ -5,6 +5,7 @@ export const Colors = {
   green: "#138086",
   green2: "#4f772d",
   greenLight: "#e9edc9",
+  grey: "#8a817c",
   greenDark: "#31572c",
   greenDarkest: "#132a13",
   yellow: "#EEB462",
@@ -17,4 +18,5 @@ export const Colors = {
   darkGrey: "#4d4d4d",
   black: "#2d2d2d",
   black2: "#242424",
+  cream: "#fcd5ce",
 };

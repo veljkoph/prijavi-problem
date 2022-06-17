@@ -9,6 +9,11 @@ const InformationCard = ({ item, navigation }) => {
       style={informationsStyle.card}
       onPress={() => navigation.navigate("Information", { id: item.id })}
     >
+      <View style={informationsStyle.textWrapper}>
+        <Text style={informationsStyle.cardTitle}>{item?.title}</Text>
+        <Text style={informationsStyle.lightText}>{item?.created_at}</Text>
+        <Text style={informationsStyle.cardText}>{item?.short_text}</Text>
+      </View>
       <Image
         style={informationsStyle.image}
         resizeMode="cover"
@@ -16,11 +21,6 @@ const InformationCard = ({ item, navigation }) => {
           uri: item?.image,
         }}
       />
-      <View>
-        <Text style={informationsStyle.cardTitle}>{item?.title}</Text>
-        <Text style={informationsStyle.lightText}>{item?.created_at}</Text>
-        <Text style={informationsStyle.cardText}>{item?.short_text}</Text>
-      </View>
     </TouchableOpacity>
   );
 };

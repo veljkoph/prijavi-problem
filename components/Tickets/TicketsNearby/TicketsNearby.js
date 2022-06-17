@@ -49,7 +49,8 @@ const TicketsNearby = () => {
       />
       <FlatList
         showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}
+        showsHorizontalScrollIndicator={true}
+        persistentScrollbar={true}
         horizontal={true}
         keyExtractor={(item, index) => index.toString()}
         ListEmptyComponent={
@@ -58,14 +59,12 @@ const TicketsNearby = () => {
         contentContainerStyle={{
           padding: 0,
           margin: 0,
-          width: Dimensions.get("window").width,
+          // width: Dimensions.get("window").width,
         }}
         onEndReachedThreshold={0}
         data={data?.data?.data}
         renderItem={({ item }) => <TicketCard item={item} key={item.id} />}
-        r
       />
-      {console.log(data?.data.data)}
     </View>
   );
 };

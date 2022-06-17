@@ -6,8 +6,9 @@ import {
   Image,
   Platform,
 } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 import { useMutation } from "react-query";
+import axiosPost from "../../../services/axiosPost";
 //components
 import DarkLineInput from "../../Global/DarkLineinput";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -17,12 +18,33 @@ import pickImage from "../../../functions/pickImage";
 import { createticketStyle } from "../../../styles/createTicket/createticketStyle";
 import { Colors } from "../../../constants/Colors";
 import { globalStyle } from "../../../styles/global/globalStyle";
+import { BASE_URL } from "@env";
+import axios from "react-native-axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const NewTicket = () => {
   const formData = new FormData();
+  // const { isLoading, isError, mutate, data, error, isSuccess } = useMutation(
+  //   async (values) => {
+  //     return axiosPost({
+  //       url: "/tickets",
+  //       values: formData,
+  //     });
+  //   }
+  // );
+
   const { isLoading, isError, mutate, data, error, isSuccess } = useMutation(
     async (values) => {
-      return axiosPost({ url: "/tickets", values: formData });
+      return await axios({
+        method: "post",
+        url: `${BASE_URL}/tickets`,
+        data: formData,
+        headers: {
+          authorization: await AsyncStorage.getItem("token"),
+          "Content-Type": "multipart/form-data",
+          Accept: "application/json",
+        },
+      });
     }
   );
   const appendToForm = (values) => {
@@ -80,7 +102,7 @@ const NewTicket = () => {
         }}
         onSubmit={(values) => {
           appendToForm(values);
-          mutate();
+          mutate(values);
         }}
       >
         {(props) => (

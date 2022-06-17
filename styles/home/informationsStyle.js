@@ -10,13 +10,13 @@ export const informationsStyle = StyleSheet.create({
     marginBottom: 4,
     fontFamily: "Lato-Regular",
   },
-
   card: {
     paddingVertical: 15,
     borderRadius: 3,
     flexDirection: "row",
     borderBottomColor: Colors.lightGrey,
     borderBottomWidth: 1,
+    justifyContent: "space-between",
   },
   cardTitle: {
     fontSize: 17,
@@ -36,10 +36,13 @@ export const informationsStyle = StyleSheet.create({
     fontSize: 14,
     fontFamily: "Lato-Regular",
     color: Colors.black,
-    maxWidth: "95%",
+    maxWidth: "80%",
+  },
+  textWrapper: {
+    flex: 0.76,
   },
   image: {
-    width: "27%",
+    flex: 0.24,
     height: "100%",
     borderRadius: 10,
     marginRight: 10,
