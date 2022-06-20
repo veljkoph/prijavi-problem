@@ -5,27 +5,27 @@ import {
   ActivityIndicator,
   Image,
   Platform,
+  ScrollView,
 } from "react-native";
-import React from "react";
-import { useMutation } from "react-query";
-import axiosPost from "../../../services/axiosPost";
+import React, { useEffect } from "react";
+import { useMutation, useQueries, useQuery } from "react-query";
 //components
-import DarkLineInput from "../../Global/DarkLineinput";
+import DarkLineInput from "../../components/Global/DarkLineinput";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { Formik } from "formik";
-import pickImage from "../../../functions/pickImage";
+import pickImage from "../../functions/pickImage";
 //style
-import { createticketStyle } from "../../../styles/createTicket/createticketStyle";
-import { Colors } from "../../../constants/Colors";
-import { globalStyle } from "../../../styles/global/globalStyle";
+import { createticketStyle } from "../../styles/createTicket/createticketStyle";
+import { Colors } from "../../constants/Colors";
+import { globalStyle } from "../../styles/global/globalStyle";
 import { BASE_URL } from "@env";
 import axios from "react-native-axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { CreationTicketSchema } from "../../../constants/validations/CreationTicketSchema";
+import { CreationTicketSchema } from "../../constants/validations/CreationTicketSchema";
+import axiosFetch from "../../services/axiosFetch";
 
-const NewTicket = () => {
+const EditTicket = ({ route }) => {
   const formData = new FormData();
-
   const { isLoading, isError, mutate, data, error, isSuccess } = useMutation(
     async (values) => {
       return await axios({
@@ -41,73 +41,55 @@ const NewTicket = () => {
     }
   );
 
-  const appendToForm = (values) => {
-    formData.append("address", values.address);
-    formData.append("description", values.description);
-    const arr = [
-      values.file1 && values.file1,
-      values.file2 && values.file2,
-      values.file3 && values.file3,
-    ];
+  //   const {
+  //     data: image,
+  //     error: imageError,
+  //     isLoading: imageIsLoading,
+  //   } = useQuery(
+  //     ["image", ticket],
+  //     () => axiosFetch({ url: `/${ticket.thumbnail?.path}` }),
+  //     {
+  //       enabled: !!ticket,
+  //     }
+  //   );
 
-    arr.map((item) => {
-      if (item.uri) {
-        const uriArr = item.uri.split(".");
-        const fileType = uriArr[uriArr.length - 1];
-        formData.append("files[]", {
-          uri:
-            Platform.OS === "ios" ? item.uri.replace("file://", "") : item.uri,
-          type: `image/${fileType}`,
-          name: `profilepicture${item.uri}`,
-        });
-      }
-    });
-    // if (values.file1) {
-    //   const uriArr = values.file1.uri.split(".");
-    //   const fileType = uriArr[uriArr.length - 1];
-    //   formData.append("files[]", {
-    //     uri:
-    //       Platform.OS === "ios"
-    //         ? values.file1.uri.replace("file://", "")
-    //         : values.file1.uri,
-    //     type: `image/${fileType}`,
-    //     name: `profilepicture${values.file1.uri}`,
-    //   });
-    // }
-    // if (values.file2) {
-    //   const uriArr = values.file2.uri.split(".");
-    //   const fileType = uriArr[uriArr.length - 1];
-    //   formData.append("files[]", {
-    //     uri:
-    //       Platform.OS === "ios"
-    //         ? values.file2.uri.replace("file://", "")
-    //         : values.file2.uri,
-    //     type: `image/${fileType}`,
-    //     name: `profilepicture${values.file2.uri}`,
-    //   });
-    // }
-    // if (values.file3) {
-    //   const uriArr = values.file3.uri.split(".");
-    //   const fileType = uriArr[uriArr.length - 1];
-    //   formData.append("files[]", {
-    //     uri:
-    //       Platform.OS === "ios"
-    //         ? values.file3.uri.replace("file://", "")
-    //         : values.file3.uri,
-    //     type: `image/${fileType}`,
-    //     name: `profilepicture${values.file3.uri}`,
-    //   });
-    // }
-  };
+  let ticketID = route?.params?.params?.item;
+  const {
+    data: ticket,
+    error: ticketError,
+    isLoading: ticketIsLoading,
+  } = useQuery(
+    ["ticket", ticketID],
+    () => axiosFetch({ url: `/tickets/${ticketID}` }),
+    {
+      enabled: !!ticketID,
+    },
+    {}
+  );
+
+  //  console.log(ticket?.data?.data?.images);
+
+  //   const imageQueries = useQueries(
+  //     ticket?.data?.data?.images?.map((image) => {
+  //       return {
+  //         queryKey: ["image", image.path],
+  //         queryFn: () => axiosFetch({ url: `/${image.path}` }),
+  //         enabled: false,
+  //       };
+  //     })
+  //   );
+
+  const appendToForm = (values) => {};
 
   return (
-    <View>
-      <Text style={createticketStyle.title}>KREIRAJ PRIJAVU</Text>
+    <ScrollView style={createticketStyle.container}>
+      <Text style={createticketStyle.title}>IZMENI PRIJAVU</Text>
       <Formik
         validationSchema={CreationTicketSchema}
+        enableReinitialize={true}
         initialValues={{
-          address: "",
-          description: "",
+          address: ticket?.data?.data?.address || "",
+          description: ticket?.data?.data?.description || "",
           file1: "",
           file2: "",
           file3: "",
@@ -225,8 +207,8 @@ const NewTicket = () => {
           </View>
         )}
       </Formik>
-    </View>
+    </ScrollView>
   );
 };
 
-export default NewTicket;
+export default EditTicket;

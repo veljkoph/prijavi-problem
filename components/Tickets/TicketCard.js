@@ -11,7 +11,7 @@ import Arrived from "./Status/Arrived";
 //query
 import { useQuery } from "react-query";
 
-const TicketCard = ({ item }) => {
+const TicketCard = ({ item, onPress }) => {
   const {
     data: image,
     error,
@@ -30,10 +30,10 @@ const TicketCard = ({ item }) => {
     processing: <Processing />,
     arrived: <Arrived />,
   };
-
+  if (error) return null;
   const StatusComponent = () => (item ? status[item?.status] : null);
   return (
-    <TouchableOpacity style={ticketStyle.card}>
+    <TouchableOpacity style={ticketStyle.card} onPress={() => onPress()}>
       <View style={globalStyle.spaceBetween}>
         <Text style={ticketStyle.title}>{item?.address}</Text>
         <Text style={ticketStyle.subtitle}>{item?.short_description}</Text>

@@ -81,7 +81,16 @@ const Tickets = ({ navigation }) => {
         onEndReachedThreshold={0}
         data={data?.pages?.map((page) => page?.data).flat()}
         renderItem={({ item }) => (
-          <TicketCard item={item} navigation={navigation} />
+          <TicketCard
+            item={item}
+            navigation={navigation}
+            onPress={() =>
+              navigation.navigate("EditTicket", {
+                params: { item: item.id },
+                initial: false,
+              })
+            }
+          />
         )}
       />
     </View>
