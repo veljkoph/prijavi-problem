@@ -53,7 +53,7 @@ const Login = ({ navigation }) => {
           height: 225,
           width: 225,
           marginBottom: 20,
-          alignSelf: "flex-start",
+          alignSelf: "center",
         }}
         source={require("../../assets/animations/102118-eco-friendly-city.json")}
         autoPlay={true}

@@ -42,15 +42,14 @@ export const informationsStyle = StyleSheet.create({
     flex: 0.76,
   },
   image: {
-    flex: 0.24,
-    height: "100%",
-    borderRadius: 10,
-    marginRight: 10,
+    flex: 0.25,
+    //   height: "100%",
   },
   //information page
   coverImage: {
     width: "100%",
     height: 220,
+    backgroundColor: "white",
   },
   articleTextContainer: {
     padding: 10,
