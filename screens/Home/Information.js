@@ -34,7 +34,7 @@ const Information = ({ route }) => {
     <ScrollView>
       <Image
         style={informationsStyle.coverImage}
-        resizeMode="contain"
+        resizeMode="cover"
         source={{
           uri: data?.data?.data?.image,
         }}

@@ -54,7 +54,6 @@ const Informations = ({ navigation }) => {
         onEndReached={hasNextPage && fetchNextPage}
         ListHeaderComponent={
           <>
-            <UserInfo navigation={navigation} />
             <Text style={informationsStyle.title}>INFORMACIJE</Text>
             <LinearGradient
               colors={Gradient.orangeGradient}
@@ -72,6 +71,8 @@ const Informations = ({ navigation }) => {
         }}
         contentContainerStyle={{
           paddingBottom: 84,
+          paddingHorizontal: 20,
+          paddingTop: 20,
         }}
         onEndReachedThreshold={0}
         data={data?.pages?.map((page) => page?.data).flat()}

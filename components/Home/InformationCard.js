@@ -1,7 +1,6 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { informationsStyle } from "../../styles/home/informationsStyle";
-import { globalStyle } from "../../styles/global/globalStyle";
 
 const InformationCard = ({ item, navigation }) => {
   return (
@@ -12,7 +11,6 @@ const InformationCard = ({ item, navigation }) => {
       <View style={informationsStyle.textWrapper}>
         <Text style={informationsStyle.cardTitle}>{item?.title}</Text>
         <Text style={informationsStyle.lightText}>{item?.created_at}</Text>
-        <Text style={informationsStyle.cardText}>{item?.short_text}</Text>
       </View>
       <Image
         style={informationsStyle.image}

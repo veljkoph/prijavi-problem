@@ -14,14 +14,6 @@ const HomeStack = () => {
           headerShown: false,
         }}
       />
-      <Stack.Screen
-        name="Information"
-        component={Information}
-        options={{
-          headerBackVisible: true,
-          title: "Informacija",
-        }}
-      />
     </Stack.Navigator>
   );
 };

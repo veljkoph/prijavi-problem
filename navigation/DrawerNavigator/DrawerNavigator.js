@@ -10,6 +10,7 @@ import SurveyStack from "../Stacks/SurveyStack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import InformationStack from "../Stacks/InformationStack";
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
@@ -65,6 +66,20 @@ const DrawerNavigator = () => {
             <Ionicons color={color} name="home" size={30} />
           ),
           drawerLabel: "Početni ekran",
+          drawerLabelStyle: {
+            fontSize: 17,
+            fontFamily: "Lato-Regular",
+          },
+        }}
+      />
+      <Drawer.Screen
+        name="InformationsStack"
+        component={InformationStack}
+        options={{
+          drawerIcon: ({ color }) => (
+            <Ionicons color={color} name="information-circle" size={31} />
+          ),
+          drawerLabel: "Informacije",
           drawerLabelStyle: {
             fontSize: 17,
             fontFamily: "Lato-Regular",

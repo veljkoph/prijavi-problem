@@ -35,6 +35,10 @@ export default function App() {
     "Lato-Italic": require("./assets/font/Lato-Italic.ttf"),
     "Lato-Regular": require("./assets/font/Lato-Regular.ttf"),
     "Lato-Bold": require("./assets/font/Lato-Bold.ttf"),
+    "Montserrat-Light": require("./assets/font/Montserrat-Light.ttf"),
+    "Montserrat-Medium": require("./assets/font/Montserrat-Medium.ttf"),
+    "Montserrat-Regular": require("./assets/font/Montserrat-Regular.ttf"),
+    "Montserrat-Bold": require("./assets/font/Montserrat-Bold.ttf"),
   });
   //App loading splash screen hide
   const [appIsReady, setAppIsReady] = useState(true);
