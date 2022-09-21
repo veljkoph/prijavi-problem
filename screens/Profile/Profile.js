@@ -14,9 +14,6 @@ import { ProfileEditValidationSchema } from "../../constants/validations/Profile
 import useAuth from "../../hooks/useAuth";
 import ChangeImage from "../../components/Settings/ChangeImage";
 //
-import axios from "axios";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { BASE_URL } from "@env";
 
 const Profile = () => {
   const { user, auth } = useAuth();

@@ -11,8 +11,7 @@ const HomeStack = () => {
         name="Home"
         component={Home}
         options={{
-          headerBackVisible: true,
-          title: "Novosti",
+          headerShown: false,
         }}
       />
       <Stack.Screen

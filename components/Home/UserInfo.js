@@ -3,48 +3,33 @@ import React from "react";
 import useAuth from "../../hooks/useAuth";
 import { globalStyle } from "../../styles/global/globalStyle";
 import { profileInfoStyle } from "../../styles/home/profileInfoStyle";
-import LottieView from "lottie-react-native";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import ProfilePicture from "./ProfilePicture";
+import { Colors } from "../../constants/Colors";
 
 const UserInfo = ({ navigation }) => {
   const { user } = useAuth();
 
   return (
     <View style={[globalStyle.shadow1, profileInfoStyle.container]}>
-      <View style={profileInfoStyle.paddingText}>
-        <Text style={profileInfoStyle.title}>Dobro došli,</Text>
-        {!user?.data?.name ? (
-          <View style={profileInfoStyle.placeholderLine} />
-        ) : (
+      <View style={profileInfoStyle.upperContainer}>
+        <ProfilePicture navigation={navigation} />
+        <View style={profileInfoStyle.nameWrapper}>
           <Text style={profileInfoStyle.name}>{user?.data?.name}</Text>
-        )}
-
-        <Text style={profileInfoStyle.subtitle}>
-          Hvala Vam što održavate naš grad!
+        </View>
+      </View>
+      <View style={profileInfoStyle.bottomContainer}>
+        <Text style={profileInfoStyle.welcomeText}>
+          Dobro došli na naš portal!
+        </Text>
+        <Text style={profileInfoStyle.descriptionText}>
+          Hvala Vam što brinete o dobrobiti grada i naše zajednice!
+        </Text>
+        <Text style={profileInfoStyle.messagesText}>
+          <Ionicons color={Colors.grey} name="mail" size={15} /> Broj
+          nepročitanih poruka: <Text style={profileInfoStyle.redText}> 2</Text>
         </Text>
       </View>
-
-      <TouchableOpacity
-        style={profileInfoStyle.imageBtn}
-        onPress={() =>
-          navigation.navigate("SettingsStack", {
-            screen: "Profile",
-            params: { id: user?.data?.id },
-            initial: false,
-          })
-        }
-      >
-        <LottieView
-          style={{ height: 105, width: 105 }}
-          source={require("../../assets/animations/greenCircle.json")}
-          autoPlay={true}
-          loop={true}
-        />
-        <Image
-          resizeMode="cover"
-          source={{ uri: user?.data?.image }}
-          style={profileInfoStyle.image}
-        />
-      </TouchableOpacity>
     </View>
   );
 };

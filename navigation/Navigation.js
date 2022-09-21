@@ -1,8 +1,8 @@
 import React from "react";
-import BottomNavigator from "./BottomNavigator/BottomNavigator";
-import { NavigationContainer } from "@react-navigation/native";
+import DrawerNavigator from "./DrawerNavigator/DrawerNavigator";
 import useAuth from "../hooks/useAuth";
 import AuthStack from "./Stacks/AuthStack";
+import { NavigationContainer } from "@react-navigation/native";
 
 const Navigation = () => {
   const { user } = useAuth();
@@ -10,7 +10,7 @@ const Navigation = () => {
   if (user)
     return (
       <NavigationContainer>
-        <BottomNavigator />
+        <DrawerNavigator />
       </NavigationContainer>
     );
   return (

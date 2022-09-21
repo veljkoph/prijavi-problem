@@ -4,13 +4,20 @@ import { Colors } from "../../constants/Colors";
 export const profileInfoStyle = StyleSheet.create({
   container: {
     flexDirection: "column",
-    alignItems: "flex-start",
     width: "100%",
-    marginBottom: 25,
+    backgroundColor: Colors.blueish,
     position: "relative",
-    backgroundColor: "#fff",
-    borderRadius: 5,
+    paddingBottom: 20,
+    borderRadius: 15,
     marginTop: 10,
+    shadowColor: Colors.grey,
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 7,
+    elevation: 7,
   },
   gradient: {
     position: "absolute",
@@ -20,19 +27,46 @@ export const profileInfoStyle = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
-  paddingText: {
-    paddingHorizontal: 10,
-    paddingVertical: 20,
+  upperContainer: {
+    flexDirection: "row",
+    width: "100%",
+    paddingHorizontal: 20,
   },
-  title: {
-    fontSize: 23,
+  nameWrapper: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  bottomContainer: {
+    flexDirection: "column",
+    width: "100%",
+    paddingHorizontal: 30,
+  },
+  welcomeText: {
+    fontSize: 22,
+    fontFamily: "Lato-Regular",
+    color: Colors.green,
+  },
+  descriptionText: {
+    fontSize: 14,
+    fontFamily: "Lato-Regular",
+    color: Colors.darkBlue,
+    marginTop: 5,
+  },
+  redText: {
+    color: Colors.red,
+    fontSize: 16,
     fontFamily: "Lato-Bold",
-    color: Colors.greenDarkest,
+  },
+  messagesText: {
+    fontSize: 13,
+    color: Colors.grey,
+    marginTop: 5,
   },
   name: {
-    fontSize: 24,
-    fontFamily: "Lato-Bold",
-    color: Colors.greenDarkest,
+    fontSize: 20,
+    fontFamily: "Lato-Light",
+    color: Colors.darkBlue,
     marginVertical: 17,
   },
   placeholderLine: {
@@ -51,13 +85,8 @@ export const profileInfoStyle = StyleSheet.create({
     width: 70,
     borderRadius: 50,
     position: "absolute",
-    justifyContent: "center",
-    alignItems: "center",
   },
   imageBtn: {
-    position: "absolute",
-    right: 10,
-    top: 10,
     borderColor: Colors.lightGrey,
     // borderWidth: 1,
     borderRadius: 50,

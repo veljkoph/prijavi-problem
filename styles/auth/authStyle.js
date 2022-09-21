@@ -3,20 +3,30 @@ import { Colors } from "../../constants/Colors";
 
 export const authStyle = StyleSheet.create({
   container: {
-    paddingVertical: 80,
-    paddingHorizontal: 20,
     backgroundColor: Colors.white,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    alignItems: "center",
-    justifyContent: "space-between",
+    alignItems: "flex-end",
+    justifyContent: "flex-end",
     flexDirection: "column",
     height: "100%",
     backgroundColor: Colors.white,
   },
+  image: {
+    zIndex: 0,
+    position: "absolute",
+    left: 0,
+    top: 0,
+    flex: 1,
+    width: "100%",
+  },
   form: {
     alignSelf: "flex-start",
     width: "100%",
+    backgroundColor: Colors.white,
+    zIndex: 1,
+    paddingVertical: 40,
+    paddingHorizontal: 20,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
   },
   background: {
     height: "100%",
@@ -28,7 +38,8 @@ export const authStyle = StyleSheet.create({
   textWrapper: {
     flexDirection: "row",
     width: "100%",
-    justifyContent: "flex-end",
+    justifyContent: "center",
+    marginTop: 20,
   },
   text: {
     fontSize: 15,
@@ -38,16 +49,16 @@ export const authStyle = StyleSheet.create({
   },
   textBtn: {
     fontSize: 15,
-    color: Colors.red,
+    color: Colors.orange3,
     marginVertical: 10,
     textAlign: "right",
     fontFamily: "Lato-Bold",
   },
   authButton: {
-    backgroundColor: Colors.greenDark,
+    backgroundColor: Colors.green,
     width: "100%",
-    borderRadius: 7,
-    height: 52,
+    borderRadius: 14,
+    paddingVertical: 20,
     alignItems: "center",
     justifyContent: "center",
     marginTop: 20,

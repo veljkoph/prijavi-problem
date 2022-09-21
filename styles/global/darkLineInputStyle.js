@@ -14,6 +14,7 @@ export const darkLineInputStyle = StyleSheet.create({
     fontWeight: "500",
     color: Colors.greenDarkest,
     fontFamily: "Lato-Regular",
+    textAlign: "center",
   },
 
   field: {

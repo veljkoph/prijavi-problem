@@ -6,13 +6,18 @@ const Stack = createNativeStackNavigator();
 
 const TicketStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <Stack.Screen
         name="MyTickets"
         component={Tickets}
         options={{
           headerBackVisible: true,
           title: "Moje prijave",
+          headerShown: false,
         }}
       />
       <Stack.Screen

@@ -1,4 +1,10 @@
-import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ActivityIndicator,
+  Image,
+} from "react-native";
 import { authStyle } from "../../styles/auth/authStyle";
 import { Formik } from "formik";
 import { LoginSchema } from "../../constants/validations/LoginValidationSchema";
@@ -10,7 +16,6 @@ import axios from "axios";
 import { useRef, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import useAuth from "../../hooks/useAuth";
-import LottieView from "lottie-react-native";
 
 const Login = ({ navigation }) => {
   const { user, auth } = useAuth();
@@ -45,21 +50,13 @@ const Login = ({ navigation }) => {
       contentContainerStyle={authStyle.container}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       resetScrollToCoords={{ x: 0, y: 0 }}
-      scrollEnabled={true}
+      scrollEnabled={false}
       keyboardShouldPersistTaps="handled"
     >
-      <LottieView
-        style={{
-          height: 225,
-          width: 225,
-          marginBottom: 20,
-          alignSelf: "center",
-        }}
-        source={require("../../assets/animations/102118-eco-friendly-city.json")}
-        autoPlay={true}
-        loop={false}
+      <Image
+        style={authStyle.image}
+        source={require("../../assets/images/onboarding.png")}
       />
-
       <Formik
         validationSchema={LoginSchema}
         initialValues={{ email: "", password: "" }}
@@ -87,15 +84,6 @@ const Login = ({ navigation }) => {
               onBlur={props.handleBlur("password")}
               touched={props.touched.password}
             />
-            <View style={authStyle.textWrapper}>
-              <Text style={authStyle.text}>Nemaš nalog? </Text>
-              <TouchableOpacity
-                style={authStyle.button}
-                onPress={() => navigation.navigate("Register")}
-              >
-                <Text style={authStyle.textBtn}> Registruj se</Text>
-              </TouchableOpacity>
-            </View>
 
             {isLoading && <ActivityIndicator size="large" />}
 
@@ -113,6 +101,15 @@ const Login = ({ navigation }) => {
             >
               <Text style={authStyle.authBtnText}> PRIJAVI SE</Text>
             </TouchableOpacity>
+            <View style={authStyle.textWrapper}>
+              <Text style={authStyle.text}>Novi korisnik? </Text>
+              <TouchableOpacity
+                style={authStyle.button}
+                onPress={() => navigation.navigate("Register")}
+              >
+                <Text style={authStyle.textBtn}> REGISTRUJ SE</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         )}
       </Formik>

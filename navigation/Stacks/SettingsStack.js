@@ -7,12 +7,17 @@ const Stack = createNativeStackNavigator();
 
 const SettingsStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <Stack.Screen
         name="Settings"
         component={Settings}
         options={{
           headerBackVisible: false,
+          headerShown: false,
           title: "Podešavanja",
         }}
       />

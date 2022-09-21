@@ -1,4 +1,10 @@
-import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ActivityIndicator,
+  Image,
+} from "react-native";
 import { authStyle } from "../../styles/auth/authStyle";
 import { Formik } from "formik";
 import { BASE_URL } from "@env";
@@ -23,16 +29,9 @@ const Register = ({ navigation }) => {
       scrollEnabled={true}
       keyboardShouldPersistTaps="handled"
     >
-      <LottieView
-        style={{
-          height: 125,
-          width: 125,
-          marginBottom: 20,
-          alignSelf: "center",
-        }}
-        source={require("../../assets/animations/102118-eco-friendly-city.json")}
-        autoPlay={true}
-        loop={false}
+      <Image
+        style={authStyle.image}
+        source={require("../../assets/images/onboarding.png")}
       />
       <Formik
         validationSchema={RegisterSchema}
@@ -83,15 +82,6 @@ const Register = ({ navigation }) => {
               onBlur={props.handleBlur("password_confirmation")}
               touched={props.touched.password_confirmation}
             />
-            <View style={authStyle.textWrapper}>
-              <Text style={authStyle.text}>Imaš nalog? </Text>
-              <TouchableOpacity
-                style={authStyle.button}
-                onPress={() => navigation.navigate("Login")}
-              >
-                <Text style={authStyle.textBtn}> Prijavi se</Text>
-              </TouchableOpacity>
-            </View>
 
             {isLoading && <ActivityIndicator size="large" />}
             {error ? (
@@ -117,6 +107,15 @@ const Register = ({ navigation }) => {
                 <Text style={authStyle.authBtnText}> REGISTRUJ SE</Text>
               </TouchableOpacity>
             )}
+            <View style={authStyle.textWrapper}>
+              <Text style={authStyle.text}>Imaš nalog? </Text>
+              <TouchableOpacity
+                style={authStyle.button}
+                onPress={() => navigation.navigate("Login")}
+              >
+                <Text style={authStyle.textBtn}> PRIJAVI SE</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         )}
       </Formik>

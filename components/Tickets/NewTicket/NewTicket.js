@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import React from "react";
 import { useMutation } from "react-query";
-import axiosPost from "../../../services/axiosPost";
+
 //components
 import DarkLineInput from "../../Global/DarkLineinput";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -19,7 +19,7 @@ import { createticketStyle } from "../../../styles/createTicket/createticketStyl
 import { Colors } from "../../../constants/Colors";
 import { globalStyle } from "../../../styles/global/globalStyle";
 import { BASE_URL } from "@env";
-import axios from "react-native-axios";
+import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { CreationTicketSchema } from "../../../constants/validations/CreationTicketSchema";
 
