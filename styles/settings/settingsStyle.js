@@ -18,6 +18,6 @@ export const settingsStyle = StyleSheet.create({
   },
   itemText: {
     fontSize: 15,
-    fontFamily: "Lato-Regular",
+    fontFamily: "Roboto-Regular",
   },
 });

@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { Colors } from "../../constants/Colors";
 
-export const darkLineInputStyle = StyleSheet.create({
+export const greyInputStyle = StyleSheet.create({
   container: {
     flexDirection: "column",
     alignItems: "flex-start",
@@ -10,22 +10,23 @@ export const darkLineInputStyle = StyleSheet.create({
     position: "relative",
   },
   label: {
-    fontSize: 14,
-    fontWeight: "500",
-    color: Colors.greenDarkest,
+    fontSize: 16,
+    fontWeight: "400",
+    color: Colors.grey,
     fontFamily: "Roboto-Regular",
-    textAlign: "center",
+    marginTop: 10,
   },
 
   field: {
-    minHeight: 42,
+    minHeight: 52,
     backgroundColor: "transparent",
     borderRadius: 7,
     borderBottomWidth: 2,
-    borderColor: Colors.green2,
+    borderColor: Colors.lightGrey4,
     width: "100%",
-    color: Colors.darkGrey,
-    fontSize: 14,
+    color: Colors.darkBlue,
+    fontFamily: "Roboto-Regular",
+    fontSize: 20,
     paddingHorizontal: 10,
     marginTop: 10,
     shadowColor: "white",
@@ -35,7 +36,7 @@ export const darkLineInputStyle = StyleSheet.create({
   },
   passwordToggle: {
     alignSelf: "flex-end",
-    transform: [{ translateY: 30 }, { translateX: -10 }],
+    transform: [{ translateY: 25 }, { translateX: -10 }],
     zIndex: 1,
     elevation: 1,
     width: 25,

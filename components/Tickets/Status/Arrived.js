@@ -10,7 +10,7 @@ const Arrived = () => {
       <View style={ticketStyle.iconWrapper}>
         <Ionicons color={Colors.darkGrey} name="time-outline" size={20} />
       </View>
-      <Text style={{ color: Colors.darkGrey, fontFamily: "Lato-Regular" }}>
+      <Text style={{ color: Colors.darkGrey, fontFamily: "Roboto-Regular" }}>
         PRISTIGLA PRIJAVA
       </Text>
     </View>

@@ -30,15 +30,10 @@ export default function App() {
   const netinfo = useNetInfo();
   //font loading
   const [loaded] = useFonts({
-    "Lato-Light": require("./assets/font/Lato-Light.ttf"),
-    "Lato-LightItalic": require("./assets/font/Lato-LightItalic.ttf"),
-    "Lato-Italic": require("./assets/font/Lato-Italic.ttf"),
-    "Lato-Regular": require("./assets/font/Lato-Regular.ttf"),
-    "Lato-Bold": require("./assets/font/Lato-Bold.ttf"),
-    "Montserrat-Light": require("./assets/font/Montserrat-Light.ttf"),
-    "Montserrat-Medium": require("./assets/font/Montserrat-Medium.ttf"),
-    "Montserrat-Regular": require("./assets/font/Montserrat-Regular.ttf"),
-    "Montserrat-Bold": require("./assets/font/Montserrat-Bold.ttf"),
+    "Roboto-Light": require("./assets/font/Roboto-Light.ttf"),
+    "Roboto-Medium": require("./assets/font/Roboto-Medium.ttf"),
+    "Roboto-Regular": require("./assets/font/Roboto-Regular.ttf"),
+    "Roboto-Bold": require("./assets/font/Roboto-Bold.ttf"),
   });
   //App loading splash screen hide
   const [appIsReady, setAppIsReady] = useState(true);

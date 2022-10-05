@@ -14,7 +14,7 @@ const Resolved = () => {
           size={20}
         />
       </View>
-      <Text style={{ color: Colors.green2, fontFamily: "Lato-Regular" }}>
+      <Text style={{ color: Colors.green2, fontFamily: "Roboto-Regular" }}>
         OBRAĐENO
       </Text>
     </View>

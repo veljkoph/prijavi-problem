@@ -11,11 +11,13 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import InformationStack from "../Stacks/InformationStack";
+import DrawerWrapper from "./DrawerWrapper";
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
   return (
     <Drawer.Navigator
+      drawerContent={(props) => <DrawerWrapper {...props} />}
       screenOptions={({ navigation }) => ({
         tabBarStyle: {
           backgroundColor: Colors.white,
@@ -45,12 +47,14 @@ const DrawerNavigator = () => {
         ),
         drawerPosition: "right",
         drawerActiveTintColor: Colors.white,
-        drawerActiveBackgroundColor: Colors.green,
+        drawerActiveBackgroundColor: Colors.darkBlue,
         drawerInactiveTintColor: Colors.darkBlue,
+
         drawerStyle: {
           backgroundColor: Colors.white,
-          justifyContent: "flex-end",
+          justifyContent: "center",
           flex: 1,
+          width: "85%",
         },
         drawerItemStyle: {
           paddingVertical: 4,
@@ -63,12 +67,12 @@ const DrawerNavigator = () => {
         component={HomeStack}
         options={{
           drawerIcon: ({ color }) => (
-            <Ionicons color={color} name="home" size={30} />
+            <Ionicons color={Colors.green} name="home" size={30} />
           ),
           drawerLabel: "Početni ekran",
           drawerLabelStyle: {
             fontSize: 17,
-            fontFamily: "Lato-Regular",
+            fontFamily: "Roboto-Regular",
           },
         }}
       />
@@ -77,12 +81,16 @@ const DrawerNavigator = () => {
         component={InformationStack}
         options={{
           drawerIcon: ({ color }) => (
-            <Ionicons color={color} name="information-circle" size={31} />
+            <Ionicons
+              color={Colors.green}
+              name="information-circle"
+              size={31}
+            />
           ),
           drawerLabel: "Informacije",
           drawerLabelStyle: {
             fontSize: 17,
-            fontFamily: "Lato-Regular",
+            fontFamily: "Roboto-Regular",
           },
         }}
       />
@@ -91,12 +99,12 @@ const DrawerNavigator = () => {
         component={SurveyStack}
         options={{
           drawerIcon: ({ color }) => (
-            <Ionicons color={color} name="checkmark-circle" size={30} />
+            <Ionicons color={Colors.green} name="checkmark-circle" size={30} />
           ),
           drawerLabel: "Moja glasanja",
           drawerLabelStyle: {
             fontSize: 17,
-            fontFamily: "Lato-Regular",
+            fontFamily: "Roboto-Regular",
           },
         }}
       />
@@ -105,12 +113,12 @@ const DrawerNavigator = () => {
         component={CreateTicket}
         options={{
           drawerIcon: ({ color }) => (
-            <Ionicons color={color} name="add-circle" size={30} />
+            <Ionicons color={Colors.green} name="add-circle" size={30} />
           ),
           drawerLabel: "Kreiraj prijavu",
           drawerLabelStyle: {
             fontSize: 17,
-            fontFamily: "Lato-Regular",
+            fontFamily: "Roboto-Regular",
           },
         }}
       />
@@ -119,12 +127,12 @@ const DrawerNavigator = () => {
         component={TicketStack}
         options={{
           drawerIcon: ({ color }) => (
-            <Ionicons color={color} name="reader" size={30} />
+            <Ionicons color={Colors.green} name="reader" size={30} />
           ),
           drawerLabel: "Moje prijave",
           drawerLabelStyle: {
             fontSize: 17,
-            fontFamily: "Lato-Regular",
+            fontFamily: "Roboto-Regular",
           },
         }}
       />
@@ -134,12 +142,12 @@ const DrawerNavigator = () => {
         component={SettingsStack}
         options={{
           drawerIcon: ({ color }) => (
-            <Ionicons color={color} name="cog" size={30} />
+            <Ionicons color={Colors.green} name="cog" size={30} />
           ),
           drawerLabel: "Podešavanja",
           drawerLabelStyle: {
             fontSize: 17,
-            fontFamily: "Lato-Regular",
+            fontFamily: "Roboto-Regular",
           },
         }}
       />

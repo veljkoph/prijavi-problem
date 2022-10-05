@@ -26,13 +26,13 @@ export const ticketStyle = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    fontFamily: "Lato-Regular",
+    fontFamily: "Roboto-Regular",
     flexWrap: "wrap",
     width: "90%",
   },
   subtitle: {
     fontSize: 15,
-    fontFamily: "Lato-Light",
+    fontFamily: "Roboto-Light",
     marginVertical: 10,
     width: "90%",
   },

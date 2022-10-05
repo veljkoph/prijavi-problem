@@ -22,6 +22,8 @@ import { BASE_URL } from "@env";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { CreationTicketSchema } from "../../../constants/validations/CreationTicketSchema";
+import GreyInput from "../../Global/GreyInput";
+import TextArea from "../../Global/TextArea";
 
 const NewTicket = () => {
   const formData = new FormData();
@@ -51,58 +53,29 @@ const NewTicket = () => {
     ];
 
     arr.map((item) => {
-      if (item.uri) {
-        const uriArr = item.uri.split(".");
+      console.log(item.uri);
+      if (item?.uri) {
+        const uriArr = item?.uri.split(".");
         const fileType = uriArr[uriArr.length - 1];
         formData.append("files[]", {
           uri:
-            Platform.OS === "ios" ? item.uri.replace("file://", "") : item.uri,
+            Platform.OS === "ios"
+              ? item?.uri.replace("file://", "")
+              : item?.uri,
           type: `image/${fileType}`,
-          name: `profilepicture${item.uri}`,
+          name: `profilepicture${item?.uri}`,
         });
       }
     });
-    // if (values.file1) {
-    //   const uriArr = values.file1.uri.split(".");
-    //   const fileType = uriArr[uriArr.length - 1];
-    //   formData.append("files[]", {
-    //     uri:
-    //       Platform.OS === "ios"
-    //         ? values.file1.uri.replace("file://", "")
-    //         : values.file1.uri,
-    //     type: `image/${fileType}`,
-    //     name: `profilepicture${values.file1.uri}`,
-    //   });
-    // }
-    // if (values.file2) {
-    //   const uriArr = values.file2.uri.split(".");
-    //   const fileType = uriArr[uriArr.length - 1];
-    //   formData.append("files[]", {
-    //     uri:
-    //       Platform.OS === "ios"
-    //         ? values.file2.uri.replace("file://", "")
-    //         : values.file2.uri,
-    //     type: `image/${fileType}`,
-    //     name: `profilepicture${values.file2.uri}`,
-    //   });
-    // }
-    // if (values.file3) {
-    //   const uriArr = values.file3.uri.split(".");
-    //   const fileType = uriArr[uriArr.length - 1];
-    //   formData.append("files[]", {
-    //     uri:
-    //       Platform.OS === "ios"
-    //         ? values.file3.uri.replace("file://", "")
-    //         : values.file3.uri,
-    //     type: `image/${fileType}`,
-    //     name: `profilepicture${values.file3.uri}`,
-    //   });
-    // }
   };
 
   return (
     <View>
-      <Text style={createticketStyle.title}>KREIRAJ PRIJAVU</Text>
+      <Text style={createticketStyle.title}>PRIJAVA PROBLEMA</Text>
+      <Text style={createticketStyle.description}>
+        Ispod fotigrafija unesite adresu na kojoj je problem uočen i kratak
+        opis.
+      </Text>
       <Formik
         validationSchema={CreationTicketSchema}
         initialValues={{
@@ -119,24 +92,6 @@ const NewTicket = () => {
       >
         {(props) => (
           <View style={createticketStyle.form}>
-            <DarkLineInput
-              onChangeText={props.handleChange("address")}
-              value={props.values.address}
-              label="ADRESA"
-              error={props.errors.address}
-              onBlur={props.handleBlur("address")}
-              touched={props.touched.address}
-            />
-            <DarkLineInput
-              onChangeText={props.handleChange("description")}
-              value={props.values.description}
-              label="OPIS"
-              error={props.errors.description}
-              onBlur={props.handleBlur("description")}
-              multiline={true}
-              touched={props.touched.description}
-              numberOfLines={10}
-            />
             <TouchableOpacity
               activeOpacity={0.5}
               style={createticketStyle.addPhotoWrapperLarge}
@@ -147,15 +102,15 @@ const NewTicket = () => {
             >
               {props.values.file1 ? (
                 <Image
-                  resizeMode="contain"
+                  resizeMode="cover"
                   source={{ uri: props.values.file1.uri }}
                   style={createticketStyle.imageLarge}
                 />
               ) : (
-                <Ionicons
-                  color={Colors.darkGrey}
-                  name={"camera-outline"}
-                  size={57}
+                <Image
+                  resizeMode="contain"
+                  source={require("../../../assets/icons/camera.png")}
+                  style={createticketStyle.placeholder}
                 />
               )}
             </TouchableOpacity>
@@ -163,7 +118,7 @@ const NewTicket = () => {
             <View style={globalStyle.rowSpaceBtw}>
               <TouchableOpacity
                 activeOpacity={0.5}
-                style={createticketStyle.addPhotoWrapper}
+                style={[createticketStyle.addPhotoWrapper, { marginRight: 20 }]}
                 onPress={async () => {
                   const res = await pickImage();
                   props.setFieldValue("file2", res);
@@ -171,15 +126,15 @@ const NewTicket = () => {
               >
                 {props.values.file2 ? (
                   <Image
-                    resizeMode="contain"
+                    resizeMode="cover"
                     source={{ uri: props.values.file2.uri }}
                     style={createticketStyle.imageLarge}
                   />
                 ) : (
-                  <Ionicons
-                    color={Colors.darkGrey}
-                    name={"camera-outline"}
-                    size={57}
+                  <Image
+                    resizeMode="contain"
+                    source={require("../../../assets/icons/camera.png")}
+                    style={createticketStyle.placeholder}
                   />
                 )}
               </TouchableOpacity>
@@ -193,19 +148,38 @@ const NewTicket = () => {
               >
                 {props.values.file3 ? (
                   <Image
-                    resizeMode="contain"
+                    resizeMode="cover"
                     source={{ uri: props.values.file3.uri }}
                     style={createticketStyle.imageLarge}
                   />
                 ) : (
-                  <Ionicons
-                    color={Colors.darkGrey}
-                    name={"camera-outline"}
-                    size={57}
+                  <Image
+                    resizeMode="contain"
+                    source={require("../../../assets/icons/camera.png")}
+                    style={createticketStyle.placeholder}
                   />
                 )}
               </TouchableOpacity>
             </View>
+            <GreyInput
+              onChangeText={props.handleChange("address")}
+              value={props.values.address}
+              label="Adresa na kojoj ste uočili problem "
+              error={props.errors.address}
+              onBlur={props.handleBlur("address")}
+              touched={props.touched.address}
+              icon={true}
+            />
+            <TextArea
+              onChangeText={props.handleChange("description")}
+              value={props.values.description}
+              label="Unesite kratak opis problema"
+              error={props.errors.description}
+              onBlur={props.handleBlur("description")}
+              multiline={true}
+              touched={props.touched.description}
+              numberOfLines={10}
+            />
 
             {isLoading && <ActivityIndicator size="large" />}
             {isError ? (
@@ -218,7 +192,20 @@ const NewTicket = () => {
             ) : null}
             <TouchableOpacity
               onPress={props.handleSubmit}
-              style={createticketStyle.btn}
+              style={[
+                createticketStyle.btn,
+                {
+                  backgroundColor:
+                    props.errors?.description || !!props.errors?.address
+                      ? Colors.lightGrey
+                      : Colors.greenDark,
+                },
+              ]}
+              disabled={
+                !!props.errors?.description || !!props.errors?.address
+                  ? true
+                  : false
+              }
             >
               <Text style={createticketStyle.btnText}>POŠALJI PRIJAVU</Text>
             </TouchableOpacity>

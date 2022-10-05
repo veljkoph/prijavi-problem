@@ -18,13 +18,13 @@ export const surveysStyle = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 16,
-    fontFamily: "Lato-Regular",
+    fontFamily: "Roboto-Regular",
     flexWrap: "wrap",
     width: "90%",
   },
   cardSubtitle: {
     fontSize: 15,
-    fontFamily: "Lato-Regular",
+    fontFamily: "Roboto-Regular",
     marginTop: 10,
     color: "#8a817c",
   },
@@ -48,12 +48,12 @@ export const surveysStyle = StyleSheet.create({
     alignItems: "center",
   },
   surveyTitle: {
-    fontFamily: "Lato-Regular",
+    fontFamily: "Roboto-Regular",
     fontSize: 24,
     color: Colors.greenDarkest,
   },
   surveyQuestion: {
-    fontFamily: "Lato-Regular",
+    fontFamily: "Roboto-Regular",
     fontSize: 20,
     color: Colors.greenDarkest,
     marginVertical: 20,
@@ -70,7 +70,7 @@ export const surveysStyle = StyleSheet.create({
   },
   surveyOptionText: {
     fontSize: 16,
-    fontFamily: "Lato-Light",
+    fontFamily: "Roboto-Light",
     marginVertical: 15,
     maxHeight: "80%",
     flexWrap: "wrap",
@@ -80,11 +80,11 @@ export const surveysStyle = StyleSheet.create({
     position: "absolute",
     right: 10,
     fontSize: 14,
-    fontFamily: "Lato-Light",
+    fontFamily: "Roboto-Light",
   },
   message: {
     marginVertical: 14,
-    fontFamily: "Lato-Bold",
+    fontFamily: "Roboto-Bold",
     color: Colors.greenDark,
   },
 });

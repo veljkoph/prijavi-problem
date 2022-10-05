@@ -44,19 +44,19 @@ export const profileInfoStyle = StyleSheet.create({
   },
   welcomeText: {
     fontSize: 22,
-    fontFamily: "Lato-Regular",
+    fontFamily: "Roboto-Regular",
     color: Colors.green,
   },
   descriptionText: {
     fontSize: 14,
-    fontFamily: "Lato-Regular",
+    fontFamily: "Roboto-Regular",
     color: Colors.darkBlue,
     marginTop: 5,
   },
   redText: {
     color: Colors.red,
     fontSize: 16,
-    fontFamily: "Lato-Bold",
+    fontFamily: "Roboto-Bold",
   },
   messagesText: {
     fontSize: 13,
@@ -65,7 +65,7 @@ export const profileInfoStyle = StyleSheet.create({
   },
   name: {
     fontSize: 20,
-    fontFamily: "Lato-Light",
+    fontFamily: "Roboto-Light",
     color: Colors.darkBlue,
     marginVertical: 17,
   },
@@ -77,7 +77,7 @@ export const profileInfoStyle = StyleSheet.create({
   },
   subtitle: {
     fontSize: 15,
-    fontFamily: "Lato-Italic",
+    fontFamily: "Roboto-Italic",
     color: Colors.green2,
   },
   image: {

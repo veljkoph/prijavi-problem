@@ -8,7 +8,7 @@ export const informationsStyle = StyleSheet.create({
   title: {
     fontSize: 22,
     marginBottom: 4,
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "Roboto-Regular",
   },
   card: {
     height: 130,
@@ -33,20 +33,20 @@ export const informationsStyle = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 17,
-    fontFamily: "Montserrat-Medium",
+    fontFamily: "Roboto-Medium",
     color: Colors.black,
     marginBottom: 10,
     maxWidth: "90%",
   },
   lightText: {
     fontSize: 12,
-    fontFamily: "Lato-Light",
+    fontFamily: "Roboto-Light",
     color: Colors.darkGrey,
     maxWidth: "95%",
   },
   cardText: {
     fontSize: 14,
-    fontFamily: "Lato-Regular",
+    fontFamily: "Roboto-Regular",
     color: Colors.black,
     maxWidth: "80%",
   },
@@ -76,19 +76,19 @@ export const informationsStyle = StyleSheet.create({
   },
   articleTitle: {
     fontSize: 22,
-    fontFamily: "Lato-Bold",
+    fontFamily: "Roboto-Bold",
     color: Colors.black,
     maxWidth: "95%",
   },
   articleText: {
     fontSize: 16,
-    fontFamily: "Lato-Regular",
+    fontFamily: "Roboto-Regular",
     color: Colors.black,
     lineHeight: 24,
   },
   articleLightText: {
     fontSize: 15,
-    fontFamily: "Lato-LightItalic",
+    fontFamily: "Roboto-LightItalic",
     color: Colors.darkGrey,
     marginVertical: 10,
   },

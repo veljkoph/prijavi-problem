@@ -45,14 +45,14 @@ export const authStyle = StyleSheet.create({
     fontSize: 15,
     color: Colors.greenDarkest,
     marginVertical: 10,
-    fontFamily: "Lato-Regular",
+    fontFamily: "Roboto-Regular",
   },
   textBtn: {
     fontSize: 15,
     color: Colors.orange3,
     marginVertical: 10,
     textAlign: "right",
-    fontFamily: "Lato-Bold",
+    fontFamily: "Roboto-Bold",
   },
   authButton: {
     backgroundColor: Colors.green,
@@ -72,12 +72,12 @@ export const authStyle = StyleSheet.create({
   authBtnText: {
     fontSize: 16,
     color: "white",
-    fontFamily: "Lato-Bold",
+    fontFamily: "Roboto-Bold",
   },
   errors: {
     fontSize: 16,
     color: Colors.red,
     marginTop: 10,
-    fontFamily: "Lato-Regular",
+    fontFamily: "Roboto-Regular",
   },
 });

@@ -26,7 +26,7 @@ const Empty = ({ text }) => {
       <Text
         style={{
           color: Colors.greenDark,
-          fontFamily: "Lato-Italic",
+          fontFamily: "Roboto-Italic",
           fontSize: 23,
           textAlign: "center",
           lineHeight: 35,

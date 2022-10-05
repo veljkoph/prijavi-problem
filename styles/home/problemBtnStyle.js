@@ -17,13 +17,13 @@ export const profileBtnStyle = StyleSheet.create({
   },
   blueText: {
     color: Colors.darkBlue,
-    fontFamily: "Lato-Bold",
+    fontFamily: "Roboto-Bold",
     fontSize: 15,
     textAlign: "left",
   },
   grayText: {
     color: Colors.grey,
-    fontFamily: "Lato-Regular",
+    fontFamily: "Roboto-Regular",
     fontSize: 14,
     flex: 0.4,
     textAlign: "left",

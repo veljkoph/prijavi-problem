@@ -24,4 +24,6 @@ export const Colors = {
   //figma colors
   darkBlue: "#013F57",
   blueish: "#F2F8FF",
+  lightGrey3: "#F3F6FB",
+  lightGrey4: "#DDDDDD",
 };

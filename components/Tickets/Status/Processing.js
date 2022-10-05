@@ -14,7 +14,7 @@ const Processing = () => {
           size={20}
         />
       </View>
-      <Text style={{ color: Colors.blue, fontFamily: "Lato-Regular" }}>
+      <Text style={{ color: Colors.blue, fontFamily: "Roboto-Regular" }}>
         U OBRADI
       </Text>
     </View>

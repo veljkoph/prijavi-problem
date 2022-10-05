@@ -15,7 +15,7 @@ export const profileStyle = StyleSheet.create({
   },
   submitBtnText: {
     color: Colors.white,
-    fontFamily: "Lato-Regular",
+    fontFamily: "Roboto-Regular",
   },
   submitBtn: {
     backgroundColor: Colors.green2,

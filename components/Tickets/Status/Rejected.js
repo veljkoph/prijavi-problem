@@ -10,7 +10,7 @@ const Rejected = () => {
       <View style={ticketStyle.iconWrapper}>
         <Ionicons color={Colors.red} name="close-circle-outline" size={20} />
       </View>
-      <Text style={{ color: Colors.red, fontFamily: "Lato-Regular" }}>
+      <Text style={{ color: Colors.red, fontFamily: "Roboto-Regular" }}>
         ODBIJENO
       </Text>
     </View>

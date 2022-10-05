@@ -27,7 +27,7 @@ const Error = () => {
       <Text
         style={{
           fontSize: 22,
-          fontFamily: "Lato-Italic",
+          fontFamily: "Roboto-Italic",
           color: Colors.red,
           textAlign: "center",
         }}
