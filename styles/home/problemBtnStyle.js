@@ -4,10 +4,10 @@ import { Colors } from "../../constants/Colors";
 export const profileBtnStyle = StyleSheet.create({
   container: {
     flexDirection: "row",
+    paddingTop: 20,
   },
   btn: {
-    maxWidth: 120,
-    aspectRatio: 1,
+    maxWidth: 150,
   },
   textWrapper: {
     justifyContent: "center",

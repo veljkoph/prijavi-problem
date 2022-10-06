@@ -24,10 +24,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { CreationTicketSchema } from "../../../constants/validations/CreationTicketSchema";
 import GreyInput from "../../Global/GreyInput";
 import TextArea from "../../Global/TextArea";
+import { useNavigation } from "@react-navigation/native";
 
 const NewTicket = () => {
   const formData = new FormData();
-
+  const navigation = useNavigation();
   const { isLoading, isError, mutate, data, error, isSuccess } = useMutation(
     async (values) => {
       return await axios({
@@ -40,6 +41,11 @@ const NewTicket = () => {
           Accept: "application/json",
         },
       });
+    },
+    {
+      onSuccess: () => {
+        navigation.navigate("CreationSuccsessful");
+      },
     }
   );
 
@@ -198,7 +204,7 @@ const NewTicket = () => {
                   backgroundColor:
                     props.errors?.description || !!props.errors?.address
                       ? Colors.lightGrey
-                      : Colors.greenDark,
+                      : Colors.green,
                 },
               ]}
               disabled={
@@ -207,7 +213,7 @@ const NewTicket = () => {
                   : false
               }
             >
-              <Text style={createticketStyle.btnText}>POŠALJI PRIJAVU</Text>
+              <Text style={createticketStyle.btnText}>Prijavi</Text>
             </TouchableOpacity>
           </View>
         )}

@@ -8,6 +8,7 @@ const Stack = createNativeStackNavigator();
 const InformationStack = () => {
   return (
     <Stack.Navigator
+      initialRouteName="Informations"
       screenOptions={{
         headerShown: false,
       }}

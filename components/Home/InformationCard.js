@@ -6,7 +6,7 @@ const InformationCard = ({ item, navigation }) => {
   return (
     <TouchableOpacity
       style={informationsStyle.card}
-      onPress={() => navigation.navigate("Information", { id: item.id })}
+      onPress={() => navigation.push("Information", { id: item.id })}
     >
       <View style={informationsStyle.textWrapper}>
         <Text style={informationsStyle.cardTitle}>{item?.title}</Text>

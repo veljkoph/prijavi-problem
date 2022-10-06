@@ -13,19 +13,19 @@ export const profileInfoStyle = StyleSheet.create({
     shadowColor: Colors.grey,
     shadowOffset: {
       width: 0,
-      height: 3,
+      height: 7,
     },
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.4,
     shadowRadius: 7,
     elevation: 7,
   },
-  gradient: {
+  profileIcon: {
     position: "absolute",
-    flex: 1,
-    flexGrow: 1,
-    borderRadius: 5,
-    width: "100%",
-    height: "100%",
+    right: 10,
+    top: 10,
+    height: 25,
+    width: 25,
+    aspectRatio: 1,
   },
   upperContainer: {
     flexDirection: "row",
@@ -35,7 +35,13 @@ export const profileInfoStyle = StyleSheet.create({
   nameWrapper: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
+    marginLeft: 10,
+  },
+  greenLine: {
+    height: 3,
+    backgroundColor: Colors.green,
+    width: 40,
+    borderRadius: 10,
   },
   bottomContainer: {
     flexDirection: "column",
@@ -62,6 +68,7 @@ export const profileInfoStyle = StyleSheet.create({
     fontSize: 13,
     color: Colors.grey,
     marginTop: 5,
+    fontFamily: "Roboto-Regular",
   },
   name: {
     fontSize: 20,
@@ -77,7 +84,7 @@ export const profileInfoStyle = StyleSheet.create({
   },
   subtitle: {
     fontSize: 15,
-    fontFamily: "Roboto-Italic",
+    fontFamily: "Roboto-Medium",
     color: Colors.green2,
   },
   image: {

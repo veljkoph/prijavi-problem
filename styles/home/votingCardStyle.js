@@ -9,6 +9,8 @@ export const votingCardStyle = StyleSheet.create({
     flex: 0.5,
     borderRadius: 10,
     marginLeft: 5,
+    justifyContent: "space-between",
+    marginBottom: 25,
   },
   upperContainer: {
     flexDirection: "row",

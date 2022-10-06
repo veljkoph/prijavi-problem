@@ -73,6 +73,7 @@ const Informations = ({ navigation }) => {
           paddingBottom: 84,
           paddingHorizontal: 20,
           paddingTop: 20,
+          backgroundColor: "#fff",
         }}
         onEndReachedThreshold={0}
         data={data?.pages?.map((page) => page?.data).flat()}

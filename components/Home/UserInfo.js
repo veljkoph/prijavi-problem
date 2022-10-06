@@ -12,10 +12,15 @@ const UserInfo = ({ navigation }) => {
 
   return (
     <View style={[globalStyle.shadow1, profileInfoStyle.container]}>
+      <Image
+        source={require("../../assets/icons/profileicon.png")}
+        style={profileInfoStyle.profileIcon}
+      />
       <View style={profileInfoStyle.upperContainer}>
         <ProfilePicture navigation={navigation} />
         <View style={profileInfoStyle.nameWrapper}>
           <Text style={profileInfoStyle.name}>{user?.data?.name}</Text>
+          <View style={profileInfoStyle.greenLine} />
         </View>
       </View>
       <View style={profileInfoStyle.bottomContainer}>
@@ -26,7 +31,7 @@ const UserInfo = ({ navigation }) => {
           Hvala Vam što brinete o dobrobiti grada i naše zajednice!
         </Text>
         <Text style={profileInfoStyle.messagesText}>
-          <Ionicons color={Colors.grey} name="mail" size={15} /> Broj
+          <Ionicons color={Colors.lightGrey4} name="mail" size={22} /> Broj
           nepročitanih poruka: <Text style={profileInfoStyle.redText}> 2</Text>
         </Text>
       </View>

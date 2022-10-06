@@ -1,14 +1,15 @@
-import { View, Text, ScrollView, Image } from "react-native";
+import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import axiosFetch from "../../services/axiosFetch";
 import { useQuery, useQueryClient } from "react-query";
 import { informationsStyle } from "../../styles/home/informationsStyle";
 import LeafLoader from "../Global/LeafLoader";
 import Error from "../Error/Error";
+import { useNavigation } from "@react-navigation/native";
 
 const Information = ({ route }) => {
   const queryClient = useQueryClient();
-
+  const navigation = useNavigation();
   const { data, error, isLoading } = useQuery(
     ["informations", route?.params?.id],
     () =>
@@ -31,7 +32,7 @@ const Information = ({ route }) => {
   if (error) return <Error />;
   if (isLoading) return <LeafLoader />;
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: "#fff" }}>
       <Image
         style={informationsStyle.coverImage}
         resizeMode="cover"
@@ -39,6 +40,15 @@ const Information = ({ route }) => {
           uri: data?.data?.data?.image,
         }}
       />
+      <TouchableOpacity
+        style={informationsStyle.backBtn}
+        onPress={() => navigation.navigate("Informations")}
+      >
+        <Image source={require("../../assets/icons/backBtn.png")} />
+        <Text style={informationsStyle.backBtnText}>
+          Pročitaj sve informacije
+        </Text>
+      </TouchableOpacity>
       <View style={informationsStyle.articleTextContainer}>
         <Text style={informationsStyle.articleTitle}>
           {data?.data?.data?.title}

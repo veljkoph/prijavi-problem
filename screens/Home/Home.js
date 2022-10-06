@@ -7,7 +7,12 @@ import MainNews from "../../components/Home/MainNews";
 const Home = ({ navigation }) => {
   return (
     <ScrollView
-      style={{ backgroundColor: "#fff", flex: 1, paddingHorizontal: 20 }}
+      showsVerticalScrollIndicator={false}
+      style={{
+        backgroundColor: "#fff",
+        flex: 1,
+        paddingHorizontal: 20,
+      }}
     >
       <UserInfo navigation={navigation} />
       {/* <Informations navigation={navigation} /> */}

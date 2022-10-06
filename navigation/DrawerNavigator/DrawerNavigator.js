@@ -12,6 +12,7 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import InformationStack from "../Stacks/InformationStack";
 import DrawerWrapper from "./DrawerWrapper";
+import CreateTicketStack from "../Stacks/CreateTicketStack";
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
@@ -22,7 +23,9 @@ const DrawerNavigator = () => {
         tabBarStyle: {
           backgroundColor: Colors.white,
         },
+        headerShown: true,
         headerTitle: "",
+        headerShadowVisible: false,
         headerLeft: () => (
           <Image
             source={require("../../assets/images/prijavi.png")}
@@ -35,13 +38,36 @@ const DrawerNavigator = () => {
               onPress={() => navigation.openDrawer()}
               style={{ marginRight: 20 }}
             >
-              <Ionicons color={Colors.green2} name="mail" size={30} />
+              <Ionicons color={Colors.green} name="mail" size={34} />
+              <View
+                style={{
+                  backgroundColor: Colors.red,
+                  width: 20,
+                  height: 20,
+                  borderRadius: 50,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  position: "absolute",
+                  right: -10,
+                  top: 14,
+                }}
+              >
+                <Text
+                  style={{
+                    fontSize: 14,
+                    color: "#fff",
+                    fontFamily: "Roboto-Medium",
+                  }}
+                >
+                  0
+                </Text>
+              </View>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => navigation.openDrawer()}
               style={{ marginRight: 20 }}
             >
-              <Ionicons color={Colors.green2} name="reorder-three" size={38} />
+              <Ionicons color={Colors.green} name="reorder-three" size={38} />
             </TouchableOpacity>
           </View>
         ),
@@ -49,7 +75,6 @@ const DrawerNavigator = () => {
         drawerActiveTintColor: Colors.white,
         drawerActiveBackgroundColor: Colors.darkBlue,
         drawerInactiveTintColor: Colors.darkBlue,
-
         drawerStyle: {
           backgroundColor: Colors.white,
           justifyContent: "center",
@@ -110,7 +135,7 @@ const DrawerNavigator = () => {
       />
       <Drawer.Screen
         name="CreateTicket"
-        component={CreateTicket}
+        component={CreateTicketStack}
         options={{
           drawerIcon: ({ color }) => (
             <Ionicons color={Colors.green} name="add-circle" size={30} />

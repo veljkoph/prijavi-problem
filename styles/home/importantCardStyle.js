@@ -9,6 +9,9 @@ export const importantCardStyle = StyleSheet.create({
     flex: 0.5,
     borderRadius: 10,
     marginRight: 5,
+    minHeight: 200,
+    justifyContent: "space-between",
+    marginBottom: 25,
   },
   upperContainer: {
     flexDirection: "row",
@@ -48,6 +51,7 @@ export const importantCardStyle = StyleSheet.create({
     fontFamily: "Roboto-Light",
     letterSpacing: 1,
     marginTop: 10,
+    lineHeight: 18,
   },
   showMore: {
     fontSize: 14,

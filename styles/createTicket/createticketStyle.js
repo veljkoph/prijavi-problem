@@ -41,7 +41,7 @@ export const createticketStyle = StyleSheet.create({
     // backgroundColor: Colors.greenDark,
     width: "100%",
     borderRadius: 7,
-    height: 52,
+    height: 60,
     alignItems: "center",
     justifyContent: "center",
     marginTop: 20,

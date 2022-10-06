@@ -4,6 +4,7 @@ import { Colors } from "../../constants/Colors";
 export const informationsStyle = StyleSheet.create({
   container: {
     flexDirection: "column",
+    backgroundColor: "#fff",
   },
   title: {
     fontSize: 22,
@@ -11,16 +12,14 @@ export const informationsStyle = StyleSheet.create({
     fontFamily: "Roboto-Regular",
   },
   card: {
-    height: 130,
-    paddingVertical: 10,
+    flex: 0.4,
+    paddingVertical: 15,
     borderRadius: 8,
     flexDirection: "row",
-    // borderBottomColor: Colors.lightGrey,
-    // borderBottomWidth: 1,
-    backgroundColor: "white",
+    borderBottomColor: Colors.lightGrey,
+    borderBottomWidth: 1,
     justifyContent: "space-between",
     alignItems: "flex-start",
-    marginVertical: 10,
     paddingHorizontal: 10,
     shadowColor: Colors.grey,
     shadowOffset: {
@@ -33,7 +32,7 @@ export const informationsStyle = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 17,
-    fontFamily: "Roboto-Medium",
+    fontFamily: "Roboto-Regular",
     color: Colors.black,
     marginBottom: 10,
     maxWidth: "90%",
@@ -62,8 +61,21 @@ export const informationsStyle = StyleSheet.create({
     aspectRatio: 1,
     borderRadius: 10,
     alignSelf: "center",
+    zIndex: 9,
   },
-
+  backBtn: {
+    height: 30,
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 15,
+    marginLeft: 10,
+  },
+  backBtnText: {
+    fontFamily: "Roboto-Medium",
+    marginLeft: 15,
+    fontSize: 16,
+    color: Colors.darkBlue,
+  },
   //information page
   coverImage: {
     width: "100%",
@@ -88,7 +100,7 @@ export const informationsStyle = StyleSheet.create({
   },
   articleLightText: {
     fontSize: 15,
-    fontFamily: "Roboto-LightItalic",
+    fontFamily: "Roboto-Light",
     color: Colors.darkGrey,
     marginVertical: 10,
   },
