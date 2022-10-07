@@ -3,20 +3,43 @@ import { Colors } from "../../constants/Colors";
 
 export const ticketStyle = StyleSheet.create({
   card: {
-    borderBottomColor: Colors.lightGrey,
-    borderBottomWidth: 1,
+    backgroundColor: Colors.blueish,
+    marginBottom: 10,
+    padding: 15,
+    borderRadius: 7,
+  },
+  cardHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingVertical: 17,
-    paddingHorizontal: 10,
-    flex: 1,
-    width: Dimensions.get("window").width - 20,
+  },
+  createdAt: {
+    fontSize: 13,
+    fontFamily: "Roboto-Regular",
+    flexWrap: "wrap",
+    color: Colors.grey,
+    textTransform: "uppercase",
+  },
+  imageWrapper: {
+    padding: 10,
+    backgroundColor: Colors.lightGrey3,
+    width: 120,
+    height: 100,
+    alignItems: "center",
+    marginTop: 15,
+    borderRadius: 25,
+    justifyContent: "center",
+    borderWidth: 1,
+    borderColor: Colors.lightGrey,
+  },
+  placeHolderImage: {
+    height: 50,
+    width: 70,
+    borderRadius: 5,
   },
   image: {
     height: 100,
-    width: 100,
+    width: 120,
     borderRadius: 5,
-    marginRight: 15,
   },
   noTicketsAnim: {
     height: 90,
@@ -26,15 +49,19 @@ export const ticketStyle = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    fontFamily: "Roboto-Regular",
+    fontFamily: "Roboto-Medium",
     flexWrap: "wrap",
     width: "90%",
+    color: Colors.darkBlue,
+    textTransform: "uppercase",
+    marginTop: 15,
   },
   subtitle: {
     fontSize: 15,
     fontFamily: "Roboto-Light",
     marginVertical: 10,
     width: "90%",
+    color: Colors.grey,
   },
   statusContainer: {
     flexDirection: "row",
@@ -43,5 +70,11 @@ export const ticketStyle = StyleSheet.create({
   iconWrapper: {
     borderRadius: 50,
     marginRight: 10,
+  },
+  showMoreText: {
+    textAlign: "right",
+    fontFamily: "Roboto-Medium",
+    color: Colors.green,
+    marginTop: 10,
   },
 });

@@ -38,7 +38,7 @@ const Tickets = ({ navigation }) => {
   });
 
   return (
-    <View>
+    <View style={{ backgroundColor: "#fff" }}>
       <FlatList
         refreshControl={
           <RefreshControl
@@ -53,19 +53,17 @@ const Tickets = ({ navigation }) => {
         onEndReached={hasNextPage && fetchNextPage}
         ListHeaderComponent={
           <>
-            <Text style={informationsStyle.title}>PRIJAVE: </Text>
-            <LinearGradient
-              colors={Gradient.purpleGradient}
-              start={[0.1, 0.8]}
-              end={[0, 1]}
-              location={[1, 1]}
-              style={globalStyle.gradientLine}
-            />
+            <View style={informationsStyle.separator} />
+            <Text style={informationsStyle.title}>MOJE PRIJAVE </Text>
+            <Text style={informationsStyle.subTitle}>
+              Lista svih prijava sa njihovim statusima, {"\n"}zaključno sa
+              današnjim datumom
+            </Text>
           </>
         }
         ListEmptyComponent={
           !isLoading ? (
-            <Empty text="Još uvek nema prijava, novu prijavu možete dodati klikom na dugme +" />
+            <Empty text="Još uvek nema prijava, novu prijavu možete dodati klikom na prijavi problem" />
           ) : (
             <DotLoader />
           )
@@ -76,7 +74,8 @@ const Tickets = ({ navigation }) => {
         }}
         contentContainerStyle={{
           paddingBottom: 84,
-          paddingHorizontal: 10,
+          paddingHorizontal: 20,
+          backgroundColor: "#Fff",
         }}
         onEndReachedThreshold={0}
         data={data?.pages?.map((page) => page?.data).flat()}

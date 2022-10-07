@@ -32,23 +32,40 @@ const TicketCard = ({ item, onPress }) => {
   };
   if (error) return null;
   const StatusComponent = () => (item ? status[item?.status] : null);
+
   return (
     <TouchableOpacity style={ticketStyle.card} onPress={() => onPress()}>
-      <View style={globalStyle.spaceBetween}>
+      <View style={ticketStyle.cardHeader}>
+        <Text style={ticketStyle.createdAt}>{item?.created_at}</Text>
+        {status[item?.status] && <StatusComponent />}
+      </View>
+      {/* <View style={globalStyle.spaceBetween}>
         <Text style={ticketStyle.title}>{item?.address}</Text>
         <Text style={ticketStyle.subtitle}>{item?.short_description}</Text>
         {status[item?.status] && <StatusComponent />}
-      </View>
-      <Image
-        style={ticketStyle.image}
-        source={
-          image?.data
-            ? { uri: `data:image/jpeg;base64,${image?.data}` }
-            : require("../../assets/images/photoPlaceholder.jpeg")
-        }
-      />
+      </View> */}
+      <Text style={ticketStyle.title}>{item?.address}</Text>
+      <Text style={ticketStyle.subtitle}>{item?.short_description}</Text>
+
+      {image?.data ? (
+        <Image
+          style={ticketStyle.image}
+          source={{ uri: `data:image/jpeg;base64,${image?.data}` }}
+        />
+      ) : (
+        <View style={ticketStyle.imageWrapper}>
+          <Image
+            resizeMode="contain"
+            style={ticketStyle.placeHolderImage}
+            source={require("../../assets/icons/camera.png")}
+          />
+        </View>
+      )}
+      <Text style={ticketStyle.showMoreText}>
+        Detalji prijave &gt; &gt; &gt;{" "}
+      </Text>
     </TouchableOpacity>
   );
 };
 
-export default TicketCard;
+export default React.memo(TicketCard);

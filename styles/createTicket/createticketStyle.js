@@ -5,8 +5,10 @@ export const createticketStyle = StyleSheet.create({
   container: {
     flexDirection: "column",
     paddingHorizontal: 20,
-    paddingBottom: 40,
+    paddingBottom: 0,
     backgroundColor: "#fff",
+    flex: 1,
+    height: "100%",
   },
   nearbyTickets: {
     flex: 1,
@@ -73,7 +75,7 @@ export const createticketStyle = StyleSheet.create({
     minHeight: 200,
     justifyContent: "center",
     alignItems: "center",
-
+    position: "relative",
     alignSelf: "center",
     elevation: 5,
     shadowColor: Colors.black,
@@ -95,6 +97,7 @@ export const createticketStyle = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 5,
     borderRadius: 25,
+    position: "relative",
   },
   imageLarge: {
     // height: 80,
@@ -119,5 +122,15 @@ export const createticketStyle = StyleSheet.create({
     marginVertical: 10,
     color: Colors.red,
     fontFamily: "Roboto-Bold",
+  },
+  removeImage: {
+    position: "absolute",
+    zIndex: 11,
+    top: 0,
+    right: 0,
+  },
+  removeImageIcon: {
+    height: 60,
+    width: 60,
   },
 });

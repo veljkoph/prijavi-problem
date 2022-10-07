@@ -33,11 +33,9 @@ const ImportantCard = () => {
         </Text>
       </View>
 
-      <TouchableOpacity>
-        <Text style={importantCardStyle.showMore}>
-          SAZNAJTE VIŠE &gt; &gt; &gt;{" "}
-        </Text>
-      </TouchableOpacity>
+      <Text style={importantCardStyle.showMore}>
+        SAZNAJTE VIŠE &gt; &gt; &gt;{" "}
+      </Text>
     </TouchableOpacity>
   );
 };

@@ -9,7 +9,22 @@ export const informationsStyle = StyleSheet.create({
   title: {
     fontSize: 22,
     marginBottom: 4,
+    fontFamily: "Roboto-Medium",
+    color: Colors.darkBlue,
+  },
+  subTitle: {
+    fontSize: 14,
+    marginBottom: 4,
     fontFamily: "Roboto-Regular",
+    color: Colors.grey,
+    lineHeight: 20,
+  },
+  separator: {
+    height: 3,
+    width: "11%",
+    borderRadius: 20,
+    backgroundColor: Colors.green,
+    marginBottom: 15,
   },
   card: {
     flex: 0.4,
@@ -21,14 +36,6 @@ export const informationsStyle = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "flex-start",
     paddingHorizontal: 10,
-    shadowColor: Colors.grey,
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 7,
-    elevation: 7,
   },
   cardTitle: {
     fontSize: 17,

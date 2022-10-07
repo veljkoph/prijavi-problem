@@ -10,8 +10,6 @@ import React from "react";
 import { useMutation } from "react-query";
 
 //components
-import DarkLineInput from "../../Global/DarkLineinput";
-import Ionicons from "react-native-vector-icons/Ionicons";
 import { Formik } from "formik";
 import pickImage from "../../../functions/pickImage";
 //style
@@ -25,10 +23,13 @@ import { CreationTicketSchema } from "../../../constants/validations/CreationTic
 import GreyInput from "../../Global/GreyInput";
 import TextArea from "../../Global/TextArea";
 import { useNavigation } from "@react-navigation/native";
+import RemoveImgBtn from "./RemoveImgBtn";
+import LeafLoader from "../../../screens/Global/LeafLoader";
 
 const NewTicket = () => {
   const formData = new FormData();
   const navigation = useNavigation();
+
   const { isLoading, isError, mutate, data, error, isSuccess } = useMutation(
     async (values) => {
       return await axios({
@@ -74,7 +75,7 @@ const NewTicket = () => {
       }
     });
   };
-
+  if (isLoading) return <LeafLoader />;
   return (
     <View>
       <Text style={createticketStyle.title}>PRIJAVA PROBLEMA</Text>
@@ -91,9 +92,10 @@ const NewTicket = () => {
           file2: "",
           file3: "",
         }}
-        onSubmit={(values) => {
+        onSubmit={(values, { resetForm }) => {
           appendToForm(values);
           mutate(values);
+          resetForm();
         }}
       >
         {(props) => (
@@ -117,6 +119,11 @@ const NewTicket = () => {
                   resizeMode="contain"
                   source={require("../../../assets/icons/camera.png")}
                   style={createticketStyle.placeholder}
+                />
+              )}
+              {props.values.file1 && (
+                <RemoveImgBtn
+                  onPressAction={() => props.setFieldValue("file1", "")}
                 />
               )}
             </TouchableOpacity>
@@ -143,6 +150,11 @@ const NewTicket = () => {
                     style={createticketStyle.placeholder}
                   />
                 )}
+                {props.values.file2 && (
+                  <RemoveImgBtn
+                    onPressAction={() => props.setFieldValue("file2", "")}
+                  />
+                )}
               </TouchableOpacity>
               <TouchableOpacity
                 activeOpacity={0.5}
@@ -163,6 +175,11 @@ const NewTicket = () => {
                     resizeMode="contain"
                     source={require("../../../assets/icons/camera.png")}
                     style={createticketStyle.placeholder}
+                  />
+                )}
+                {props.values.file3 && (
+                  <RemoveImgBtn
+                    onPressAction={() => props.setFieldValue("file3", "")}
                   />
                 )}
               </TouchableOpacity>
@@ -193,9 +210,7 @@ const NewTicket = () => {
                 {error?.response?.data?.message}
               </Text>
             ) : null}
-            {isSuccess ? (
-              <Text style={createticketStyle.text}>{data?.data?.message}</Text>
-            ) : null}
+
             <TouchableOpacity
               onPress={props.handleSubmit}
               style={[

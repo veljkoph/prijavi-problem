@@ -20,11 +20,9 @@ const VotingCard = () => {
         </Text>
       </View>
 
-      <TouchableOpacity>
-        <Text style={votingCardStyle.showMore}>
-          SAZNAJTE VIŠE &gt; &gt; &gt;{" "}
-        </Text>
-      </TouchableOpacity>
+      <Text style={votingCardStyle.showMore}>
+        SAZNAJTE VIŠE &gt; &gt; &gt;{" "}
+      </Text>
     </TouchableOpacity>
   );
 };
