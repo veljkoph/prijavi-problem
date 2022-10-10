@@ -84,9 +84,8 @@ const Tickets = ({ navigation }) => {
             item={item}
             navigation={navigation}
             onPress={() =>
-              navigation.navigate("EditTicket", {
-                params: { item: item.id },
-                initial: false,
+              navigation.navigate("Conversations", {
+                id: item.id,
               })
             }
           />

@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import EditTicket from "../../screens/Tickets/EditTicket";
+import TicketConversation from "../../screens/Tickets/TicketConversation";
 import Tickets from "../../screens/Tickets/Tickets";
 
 const Stack = createNativeStackNavigator();
@@ -20,14 +21,8 @@ const TicketStack = () => {
           headerShown: false,
         }}
       />
-      <Stack.Screen
-        name="EditTicket"
-        component={EditTicket}
-        options={{
-          headerBackVisible: true,
-          title: "Izmena prijave",
-        }}
-      />
+      <Stack.Screen name="EditTicket" component={EditTicket} />
+      <Stack.Screen name="Conversations" component={TicketConversation} />
     </Stack.Navigator>
   );
 };

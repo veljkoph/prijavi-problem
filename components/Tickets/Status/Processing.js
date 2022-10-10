@@ -11,7 +11,7 @@ const Processing = () => {
         <Ionicons
           color={Colors.blue}
           name="ellipsis-horizontal-circle-outline"
-          size={20}
+          size={17}
         />
       </View>
       <Text style={{ color: Colors.blue, fontFamily: "Roboto-Regular" }}>

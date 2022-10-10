@@ -11,7 +11,7 @@ const Resolved = () => {
         <Ionicons
           color={Colors.green2}
           name="checkmark-circle-outline"
-          size={20}
+          size={17}
         />
       </View>
       <Text style={{ color: Colors.green2, fontFamily: "Roboto-Regular" }}>

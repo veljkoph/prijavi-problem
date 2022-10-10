@@ -35,7 +35,6 @@ export const informationsStyle = StyleSheet.create({
     borderBottomWidth: 1,
     justifyContent: "space-between",
     alignItems: "flex-start",
-    paddingHorizontal: 10,
   },
   cardTitle: {
     fontSize: 17,

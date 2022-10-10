@@ -8,9 +8,15 @@ const Arrived = () => {
   return (
     <View style={ticketStyle.statusContainer}>
       <View style={ticketStyle.iconWrapper}>
-        <Ionicons color={Colors.darkGrey} name="time-outline" size={20} />
+        <Ionicons color={Colors.darkBlue} name="time-outline" size={17} />
       </View>
-      <Text style={{ color: Colors.darkGrey, fontFamily: "Roboto-Regular" }}>
+      <Text
+        style={{
+          color: Colors.darkBlue,
+          fontFamily: "Roboto-Regular",
+          fontSize: 14,
+        }}
+      >
         PRISTIGLA PRIJAVA
       </Text>
     </View>

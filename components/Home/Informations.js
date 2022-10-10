@@ -54,14 +54,11 @@ const Informations = ({ navigation }) => {
         onEndReached={hasNextPage && fetchNextPage}
         ListHeaderComponent={
           <>
+            <View style={informationsStyle.separator} />
             <Text style={informationsStyle.title}>INFORMACIJE</Text>
-            <LinearGradient
-              colors={Gradient.orangeGradient}
-              start={[0.1, 0.9]}
-              end={[1, 0]}
-              location={[1, 0]}
-              style={globalStyle.gradientLine}
-            />
+            <Text style={informationsStyle.subTitle}>
+              Sve vezano za komunalne usluge {"\n"}u našem gradu
+            </Text>
           </>
         }
         ListEmptyComponent={!isLoading ? null : <DotLoader />}
