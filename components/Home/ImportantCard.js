@@ -4,15 +4,19 @@ import { importantCardStyle } from "../../styles/home/importantCardStyle";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { Colors } from "../../constants/Colors";
 import { useNavigation } from "@react-navigation/native";
+import useLastNews from "../../hooks/home/useLastNews";
+
 const ImportantCard = () => {
   const navigation = useNavigation();
+  const { data: news, isError, isLoading } = useLastNews();
+  if (isError) return null;
   return (
     <TouchableOpacity
       style={importantCardStyle.container}
       onPress={() =>
         navigation.navigate("InformationsStack", {
           screen: "Information",
-          params: { id: "27" },
+          params: { id: news?.id },
         })
       }
     >
@@ -23,14 +27,10 @@ const ImportantCard = () => {
           <Ionicons color={Colors.orange} name="information-circle" size={25} />
         </View>
         <View style={importantCardStyle.line} />
-        <Text style={importantCardStyle.newsTitle}>POPRAVKA ULICA</Text>
-        <Text style={importantCardStyle.date}>01.01.2001-20.20.2002</Text>
-        <Text style={importantCardStyle.desc}>
-          U periodu od 00.00 do 00.00.0000, zbog obavljanja popravki, biće
-          zatvorene ulice... U periodu od 00.00 do 00.00.0000, zbog obavljanja
-          popravki, biće zatvorene ulice... zatvorene ulice... U periodu od
-          00.00 do 00.00.0000, zbog obavljanja popravki, biće zatvorene ulice...
-        </Text>
+        <Text style={importantCardStyle.date}>{news?.created_at}</Text>
+        <Text style={importantCardStyle.newsTitle}>{news?.title}</Text>
+
+        <Text style={importantCardStyle.desc}>{news?.short_text}</Text>
       </View>
 
       <Text style={importantCardStyle.showMore}>

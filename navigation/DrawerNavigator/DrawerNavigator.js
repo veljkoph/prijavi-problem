@@ -13,6 +13,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import InformationStack from "../Stacks/InformationStack";
 import DrawerWrapper from "./DrawerWrapper";
 import CreateTicketStack from "../Stacks/CreateTicketStack";
+import Profile from "../../screens/Profile/Profile";
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
@@ -161,8 +162,21 @@ const DrawerNavigator = () => {
           },
         }}
       />
-
       <Drawer.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          drawerIcon: ({ color }) => (
+            <Ionicons color={Colors.green} name="person-circle" size={30} />
+          ),
+          drawerLabel: "Profil",
+          drawerLabelStyle: {
+            fontSize: 17,
+            fontFamily: "Roboto-Regular",
+          },
+        }}
+      />
+      {/* <Drawer.Screen
         name="SettingsStack"
         component={SettingsStack}
         options={{
@@ -175,7 +189,7 @@ const DrawerNavigator = () => {
             fontFamily: "Roboto-Regular",
           },
         }}
-      />
+      /> */}
     </Drawer.Navigator>
   );
 };

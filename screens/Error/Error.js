@@ -32,7 +32,7 @@ const Error = () => {
           textAlign: "center",
         }}
       >
-        Izvinjavamo se, došlo je do greške, molimo pokušajte kasnije
+        Izvinjavamo se,{"\n"} došlo je do greške.{"\n"} Molimo pokušajte kasnije
       </Text>
     </View>
   );

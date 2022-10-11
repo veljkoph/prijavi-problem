@@ -6,6 +6,7 @@ export const globalStyle = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#fff",
   },
   shadow1: {
     elevation: 3,
@@ -18,6 +19,11 @@ export const globalStyle = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     justifyContent: "space-between",
+  },
+  rowSpaceAround: {
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "space-around",
   },
   column: {
     flexDirection: "column",
@@ -48,5 +54,81 @@ export const globalStyle = StyleSheet.create({
   },
   spaceBetween: {
     justifyContent: "space-between",
+  },
+
+  cancelBtn: {
+    borderTopLeftRadius: 10,
+    borderBottomLeftRadius: 10,
+    marginTop: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 0.4,
+    minHeight: 60,
+    borderWidth: 1,
+    borderColor: Colors.grey,
+  },
+  ctaBtn: {
+    backgroundColor: Colors.green,
+    marginTop: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 0.4,
+    minHeight: 60,
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10,
+  },
+  cancelBtnText: {
+    fontFamily: "Roboto-Medium",
+    color: Colors.grey,
+    fontSize: 15,
+  },
+  ctaBtnText: {
+    fontFamily: "Roboto-Medium",
+    color: "#fff",
+    fontSize: 15,
+  },
+  successText: {
+    fontFamily: "Roboto-Medium",
+    color: Colors.darkBlue,
+    fontSize: 15,
+    textAlign: "center",
+  },
+  errorText: {
+    fontFamily: "Roboto-Medium",
+    color: Colors.red,
+    fontSize: 15,
+    textAlign: "center",
+  },
+
+  headerTitle: {
+    fontSize: 22,
+    marginBottom: 4,
+    fontFamily: "Roboto-Medium",
+    color: Colors.darkBlue,
+  },
+  headerBtn: {
+    flexDirection: "row",
+    marginVertical: 5,
+  },
+  headerArrow: {
+    marginRight: 10,
+  },
+  headerSubTitle: {
+    fontSize: 14,
+    marginBottom: 4,
+    fontFamily: "Roboto-Regular",
+    color: Colors.grey,
+    lineHeight: 20,
+  },
+  headerSeparator: {
+    height: 3,
+    width: "11%",
+    borderRadius: 20,
+    backgroundColor: Colors.green,
+    marginBottom: 15,
+  },
+  whiteBg: {
+    flex: 1,
+    backgroundColor: "#FFF",
   },
 });

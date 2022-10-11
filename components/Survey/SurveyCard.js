@@ -10,6 +10,7 @@ const SurveyCard = ({ survey, navigation }) => {
       onPress={() => navigation.navigate("SurveyDetails", { id: survey.id })}
     >
       <View style={surveysStyle.cardTextWrapper}>
+        <Text style={surveysStyle.date}>{survey?.created_at}</Text>
         <Text style={surveysStyle.cardTitle}>{survey?.title}</Text>
         <Text style={surveysStyle.cardSubtitle}>{survey?.description}</Text>
       </View>

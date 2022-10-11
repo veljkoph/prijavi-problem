@@ -1,12 +1,13 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import React from "react";
 import { creationSuccsessfulStyle } from "../../styles/createTicket/creationSuccsessful";
 import { useNavigation } from "@react-navigation/native";
+import { globalStyle } from "../../styles/global/globalStyle";
 
 const CreationSuccessful = () => {
   const navigation = useNavigation();
   return (
-    <View style={creationSuccsessfulStyle.container}>
+    <ScrollView style={creationSuccsessfulStyle.container}>
       <View style={creationSuccsessfulStyle.header}>
         <Image
           style={creationSuccsessfulStyle.dotsLeft}
@@ -38,13 +39,21 @@ const CreationSuccessful = () => {
         style={creationSuccsessfulStyle.banner}
         source={require("../../assets/images/people.png")}
       />
-      <TouchableOpacity
-        style={creationSuccsessfulStyle.backBtn}
-        onPress={() => navigation.navigate("CreateTicketScreen")}
-      >
-        <Text style={creationSuccsessfulStyle.backBtnText}>Vrati se nazad</Text>
-      </TouchableOpacity>
-    </View>
+      <View style={globalStyle.rowSpaceAround}>
+        <TouchableOpacity
+          style={globalStyle.cancelBtn}
+          onPress={() => navigation.navigate("CreateTicketScreen")}
+        >
+          <Text style={globalStyle.cancelBtnText}>Nova prijava</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={globalStyle.ctaBtn}
+          onPress={() => navigation.navigate("Tickets")}
+        >
+          <Text style={globalStyle.ctaBtnText}>Prikaži prijave</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 };
 

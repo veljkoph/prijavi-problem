@@ -28,7 +28,7 @@ const SurveyOption = ({
       <View
         style={{
           position: "absolute",
-          backgroundColor: Colors.cream,
+          backgroundColor: Colors.lightGrey,
           width: hasVoted && percentage ? `${percentage + 21}%` : 0,
           height: "100%",
           left: "-12%",

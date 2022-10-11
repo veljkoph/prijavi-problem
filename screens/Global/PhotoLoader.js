@@ -2,22 +2,21 @@ import { View, Text } from "react-native";
 import React from "react";
 import LottieView from "lottie-react-native";
 
-const LeafLoader = () => {
+const PhotoLoader = () => {
   return (
     <View
       style={{
-        flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        height: 300,
+        flex: 1,
       }}
     >
       <LottieView
         style={{
-          height: 100,
-          width: 100,
+          height: 70,
+          width: 70,
         }}
-        source={require("../../assets/animations/leafLoader.json")}
+        source={require("../../assets/animations/photoLoader.json")}
         autoPlay={true}
         loop={true}
         speed={1.5}
@@ -26,4 +25,4 @@ const LeafLoader = () => {
   );
 };
 
-export default LeafLoader;
+export default PhotoLoader;

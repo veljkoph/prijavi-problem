@@ -1,9 +1,5 @@
 import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
-
 import React, { useState } from "react";
-import { darkLineInputStyle } from "../../styles/global/darkLineInputStyle";
-import { Ionicons } from "@expo/vector-icons";
-import { Colors } from "../../constants/Colors";
 import { greyInputStyle } from "../../styles/global/greyInputStyle";
 
 const GreyInput = (props) => {
@@ -13,10 +9,7 @@ const GreyInput = (props) => {
     <>
       <View style={greyInputStyle.container}>
         <TouchableOpacity style={greyInputStyle.passwordToggle}>
-          <Image
-            source={require("../../assets/icons/location.png")}
-            style={{ height: 25, aspectRatio: 1 }}
-          />
+          <Image source={props.icon} style={{ height: 25, aspectRatio: 1 }} />
         </TouchableOpacity>
 
         <TextInput

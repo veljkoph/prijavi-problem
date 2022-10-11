@@ -1,4 +1,4 @@
-import { KeyboardAvoidingView, FlatList, Text } from "react-native";
+import { KeyboardAvoidingView, FlatList, Text, View } from "react-native";
 import React, { useState } from "react";
 import { conversationStyle } from "../../styles/tickets/coversationStyle";
 import { useHeaderHeight } from "@react-navigation/elements";
@@ -7,6 +7,10 @@ import Header from "../../components/Tickets/Conversation/Header";
 import TiceketDetails from "../../components/Tickets/Conversation/TicketDetails";
 import useTicketFetch from "../../hooks/tickets/useTicketFetch";
 import NewMessage from "../../components/Tickets/Conversation/NewMessage";
+import LeafLoader from "../Global/LeafLoader";
+import Error from "../Error/Error";
+import DotLoader from "../../components/Animations/DotLoader";
+import { globalStyle } from "../../styles/global/globalStyle";
 
 const TicketConversation = ({ route }) => {
   const [userMessage, setUserMessage] = useState();
@@ -17,7 +21,13 @@ const TicketConversation = ({ route }) => {
     isLoading,
     isError,
   } = useTicketFetch(route?.params?.id);
-
+  if (isLoading)
+    return (
+      <View style={globalStyle.center}>
+        <DotLoader />
+      </View>
+    );
+  if (isError) return <Error />;
   return (
     <KeyboardAvoidingView
       style={conversationStyle.container}
@@ -52,7 +62,11 @@ const TicketConversation = ({ route }) => {
         )}
       />
 
-      <NewMessage setUserMessage={setUserMessage} userMessage={userMessage} />
+      <NewMessage
+        setUserMessage={setUserMessage}
+        userMessage={userMessage}
+        ticketID={ticket?.id}
+      />
     </KeyboardAvoidingView>
   );
 };

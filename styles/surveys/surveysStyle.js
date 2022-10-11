@@ -3,13 +3,13 @@ import { Colors } from "../../constants/Colors";
 
 export const surveysStyle = StyleSheet.create({
   card: {
-    borderBottomColor: Colors.lightGrey,
-    borderBottomWidth: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingVertical: 12,
-    paddingHorizontal: 5,
-    alignItems: "center",
+    backgroundColor: Colors.blueish,
+    borderRadius: 8,
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    marginVertical: 10,
   },
   cardTextWrapper: {
     flexWrap: "wrap",
@@ -17,16 +17,24 @@ export const surveysStyle = StyleSheet.create({
     flexDirection: "row",
   },
   cardTitle: {
-    fontSize: 16,
-    fontFamily: "Roboto-Regular",
+    fontSize: 15,
+    fontFamily: "Roboto-Medium",
     flexWrap: "wrap",
     width: "90%",
+    color: Colors.darkBlue,
+    textTransform: "uppercase",
+  },
+  date: {
+    fontSize: 12,
+    fontFamily: "Roboto-Regular",
+    marginBottom: 15,
+    color: Colors.grey,
   },
   cardSubtitle: {
-    fontSize: 15,
+    fontSize: 14,
     fontFamily: "Roboto-Regular",
-    marginTop: 10,
-    color: "#8a817c",
+    marginTop: 15,
+    color: Colors.grey,
   },
   cardIsVoted: {
     flex: 0.24,
@@ -42,10 +50,11 @@ export const surveysStyle = StyleSheet.create({
     marginRight: 10,
   },
   container: {
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
     paddingBottom: 20,
     paddingTop: 30,
-    alignItems: "center",
+    backgroundColor: "#fff",
+    flex: 1,
   },
   surveyTitle: {
     fontFamily: "Roboto-Regular",
@@ -67,14 +76,18 @@ export const surveysStyle = StyleSheet.create({
     justifyContent: "center",
     marginVertical: 7,
     overflow: "hidden",
+    borderWidth: 1,
+    borderColor: Colors.lightGrey4,
   },
   surveyOptionText: {
     fontSize: 16,
-    fontFamily: "Roboto-Light",
+    fontFamily: "Roboto-Regular",
     marginVertical: 15,
     maxHeight: "80%",
     flexWrap: "wrap",
     textAlign: "left",
+    color: Colors.darkBlue,
+    textTransform: "uppercase",
   },
   surveyPercentageText: {
     position: "absolute",
@@ -83,8 +96,10 @@ export const surveysStyle = StyleSheet.create({
     fontFamily: "Roboto-Light",
   },
   message: {
-    marginVertical: 14,
+    marginVertical: 24,
     fontFamily: "Roboto-Bold",
-    color: Colors.greenDark,
+    color: Colors.darkBlue,
+    textAlign: "center",
+    fontSize: 18,
   },
 });

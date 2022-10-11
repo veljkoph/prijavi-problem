@@ -50,6 +50,13 @@ export const conversationStyle = StyleSheet.create({
     borderRadius: 20,
     marginTop: 15,
   },
+  imageS: {
+    height: 110,
+    flex: 0.48,
+    maxWidth: "50%",
+    borderRadius: 20,
+    marginTop: 15,
+  },
   message: {
     flexDirection: "row",
     borderTopColor: Colors.lightGrey4,
@@ -83,7 +90,7 @@ export const conversationStyle = StyleSheet.create({
     fontSize: 14,
     fontFamily: "Roboto-Light",
     color: Colors.darkBlue,
-    marginTop: 15,
+    marginTop: 5,
   },
   rowSbFlex: {
     flexDirection: "row",
@@ -100,7 +107,7 @@ export const conversationStyle = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
     justifyContent: "space-between",
-    paddingBottom: 60,
+    paddingBottom: 40,
   },
   messageInputImgWrapper: {
     flex: 0.2,
@@ -123,5 +130,17 @@ export const conversationStyle = StyleSheet.create({
     position: "absolute",
     right: 30,
     top: 20,
+  },
+  title: {
+    fontSize: 20,
+    fontFamily: "Roboto-Light",
+    color: Colors.darkBlue,
+    marginVertical: 15,
+  },
+  description: {
+    fontSize: 16,
+    fontFamily: "Roboto-Light",
+    color: Colors.darkBlue,
+    marginBottom: 15,
   },
 });

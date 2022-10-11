@@ -9,8 +9,7 @@ const ProfilePicture = ({ navigation }) => {
     <TouchableOpacity
       style={profileInfoStyle.imageBtn}
       onPress={() =>
-        navigation.navigate("SettingsStack", {
-          screen: "Profile",
+        navigation.navigate("Profile", {
           params: { id: user?.data?.id },
           initial: false,
         })

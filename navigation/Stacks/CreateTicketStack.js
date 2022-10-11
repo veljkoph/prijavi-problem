@@ -8,7 +8,7 @@ const Stack = createNativeStackNavigator();
 
 const CreateTicketStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="CreateTicketScreen">
       <Stack.Screen
         name="CreateTicketScreen"
         component={CreateTicket}

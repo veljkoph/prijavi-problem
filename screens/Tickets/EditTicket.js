@@ -67,18 +67,6 @@ const EditTicket = ({ route }) => {
     {}
   );
 
-  //  console.log(ticket?.data?.data?.images);
-
-  //   const imageQueries = useQueries(
-  //     ticket?.data?.data?.images?.map((image) => {
-  //       return {
-  //         queryKey: ["image", image.path],
-  //         queryFn: () => axiosFetch({ url: `/${image.path}` }),
-  //         enabled: false,
-  //       };
-  //     })
-  //   );
-
   const appendToForm = (values) => {};
 
   return (

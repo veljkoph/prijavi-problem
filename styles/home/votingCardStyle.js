@@ -29,6 +29,7 @@ export const votingCardStyle = StyleSheet.create({
     fontSize: 15,
     marginTop: 15,
     maxWidth: "80%",
+    textTransform: "uppercase",
   },
   line: {
     height: 4,

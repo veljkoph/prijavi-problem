@@ -6,6 +6,8 @@ import { BASE_URL } from "@env";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import DotLoader from "../../components/Animations/DotLoader";
 import SurveyCard from "../../components/Survey/SurveyCard";
+import { informationsStyle } from "../../styles/home/informationsStyle";
+import Error from "../Error/Error";
 
 const Surveys = ({ navigation }) => {
   const fetchSurveys = async ({ pageParam = 1 }) => {
@@ -33,7 +35,7 @@ const Surveys = ({ navigation }) => {
     },
     staleTime: 10000,
   });
-
+  if (isError) return <Error />;
   return (
     <FlatList
       refreshControl={
@@ -49,7 +51,12 @@ const Surveys = ({ navigation }) => {
       onEndReached={hasNextPage && fetchNextPage}
       ListHeaderComponent={
         <>
-          <Text></Text>
+          <View style={informationsStyle.separator} />
+          <Text style={informationsStyle.title}>MOJA GLASANJA </Text>
+          <Text style={informationsStyle.subTitle}>
+            Lista aktuelnih tema o kojima se možete izjasniti, {"\n"}zaključno
+            sa današnjim datumom
+          </Text>
         </>
       }
       ListEmptyComponent={
@@ -61,7 +68,10 @@ const Surveys = ({ navigation }) => {
       }}
       contentContainerStyle={{
         paddingBottom: 84,
-        paddingHorizontal: 10,
+        paddingHorizontal: 20,
+        paddingTop: 10,
+        backgroundColor: "#fff",
+        flex: 1,
       }}
       onEndReachedThreshold={0}
       data={data?.pages?.map((page) => page?.data).flat()}

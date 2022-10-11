@@ -6,7 +6,8 @@ import { globalStyle } from "../../../styles/global/globalStyle";
 import Resolved from "../Status/Resolved";
 import Rejected from "../Status/Rejected";
 import Processing from "../Status/Processing";
-import TiceketThumbnails from "./TiceketThumbnails";
+import TiceketThumbnail from "./TiceketThumbnail";
+import TicketImageSmall from "./TicketImageSmall";
 
 const TiceketDetails = ({ ticket }) => {
   const status = {
@@ -15,10 +16,9 @@ const TiceketDetails = ({ ticket }) => {
     processing: <Processing />,
     arrived: <Arrived />,
   };
-  console.log(ticket?.images);
+
   const StatusComponent = () => (ticket ? status[ticket?.status] : null);
 
-  console.log(ticket?.images.length);
   return (
     <View style={conversationStyle.details}>
       <View style={[globalStyle.rowSpaceBtw]}>
@@ -30,11 +30,17 @@ const TiceketDetails = ({ ticket }) => {
         </View>
         <StatusComponent />
       </View>
-      {ticket?.images.map((i, index) => (
-        <TiceketThumbnails image={i} key={index} />
-      ))}
+
+      {ticket?.images[0] && <TiceketThumbnail image={ticket?.images[0]} />}
+      <View style={globalStyle.rowSpaceBtw}>
+        {ticket?.images[1] && <TicketImageSmall image={ticket?.images[1]} />}
+        {ticket?.images[2] && <TicketImageSmall image={ticket?.images[2]} />}
+      </View>
+
+      <Text style={conversationStyle.title}>{ticket?.address}</Text>
+      <Text style={conversationStyle.description}>{ticket?.description}</Text>
     </View>
   );
 };
-///el map ili slidr
+
 export default TiceketDetails;

@@ -7,7 +7,7 @@ import {
   Platform,
 } from "react-native";
 import React from "react";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 
 //components
 import { Formik } from "formik";
@@ -25,10 +25,12 @@ import TextArea from "../../Global/TextArea";
 import { useNavigation } from "@react-navigation/native";
 import RemoveImgBtn from "./RemoveImgBtn";
 import LeafLoader from "../../../screens/Global/LeafLoader";
+import location from "../../../assets/icons/location.png";
 
 const NewTicket = () => {
   const formData = new FormData();
   const navigation = useNavigation();
+  const queryClient = useQueryClient();
 
   const { isLoading, isError, mutate, data, error, isSuccess } = useMutation(
     async (values) => {
@@ -46,6 +48,7 @@ const NewTicket = () => {
     {
       onSuccess: () => {
         navigation.navigate("CreationSuccsessful");
+        queryClient.invalidateQueries([`tickets`]);
       },
     }
   );
@@ -60,7 +63,6 @@ const NewTicket = () => {
     ];
 
     arr.map((item) => {
-      console.log(item.uri);
       if (item?.uri) {
         const uriArr = item?.uri.split(".");
         const fileType = uriArr[uriArr.length - 1];
@@ -191,7 +193,7 @@ const NewTicket = () => {
               error={props.errors.address}
               onBlur={props.handleBlur("address")}
               touched={props.touched.address}
-              icon={true}
+              icon={location}
             />
             <TextArea
               onChangeText={props.handleChange("description")}

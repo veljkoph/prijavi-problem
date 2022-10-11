@@ -27,9 +27,7 @@ const Message = ({ message, address }) => {
               Operater za komunikaciju
             </Text>
           ) : (
-            <Text style={conversationStyle.messageSender}>
-              {message.sender}
-            </Text>
+            <Text style={conversationStyle.messageSender}>Vi</Text>
           )}
 
           <Text style={conversationStyle.messageSubtitle}>

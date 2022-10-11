@@ -4,26 +4,37 @@ import { Colors } from "../../constants/Colors";
 export const profileStyle = StyleSheet.create({
   container: {
     flexDirection: "column",
-    alignItems: "flex-start",
+    // alignItems: "flex-start",
     width: "100%",
     position: "relative",
     paddingHorizontal: 20,
     paddingVertical: 30,
+    backgroundColor: "#fff",
+    flex: 1,
+  },
+  formWrapper: {
+    flex: 1,
+    backgroundColor: Colors.blueish,
+    alignItems: "center",
+    borderRadius: 10,
+    paddingHorizontal: 20,
+  },
+  iconCorner: {
+    position: "absolute",
+    right: 10,
+    top: 10,
+    height: 20,
+    width: 20,
   },
   form: {
     width: "100%",
   },
   submitBtnText: {
-    color: Colors.white,
-    fontFamily: "Roboto-Regular",
+    color: "#FFF",
+    fontFamily: "Roboto-Medium",
+    fontSize: 16,
   },
-  submitBtn: {
-    backgroundColor: Colors.green2,
-    paddingVertical: 15,
-    alignItems: "center",
-    borderRadius: 5,
-    marginTop: 25,
-  },
+
   imageContainer: {
     alignItems: "center",
     width: "100%",
@@ -38,13 +49,13 @@ export const profileStyle = StyleSheet.create({
     position: "absolute",
     bottom: -20,
     left: 128,
-    color: Colors.greenDark,
+    color: Colors.darkBlue,
   },
   image: {
     width: 140,
     height: 140,
     borderRadius: 140 / 2,
     borderWidth: 4,
-    borderColor: Colors.green2,
+    borderColor: Colors.green,
   },
 });

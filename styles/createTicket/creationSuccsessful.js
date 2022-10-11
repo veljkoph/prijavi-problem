@@ -63,16 +63,4 @@ export const creationSuccsessfulStyle = StyleSheet.create({
     aspectRatio: 1,
     marginTop: 15,
   },
-  backBtn: {
-    backgroundColor: Colors.green,
-    paddingVertical: 20,
-    borderRadius: 5,
-    marginTop: 20,
-    alignItems: "center",
-  },
-  backBtnText: {
-    fontFamily: "Roboto-Medium",
-    color: "#fff",
-    fontSize: 18,
-  },
 });
