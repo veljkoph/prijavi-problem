@@ -36,7 +36,7 @@ const DrawerNavigator = () => {
         headerRight: () => (
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <TouchableOpacity
-              onPress={() => navigation.openDrawer()}
+              onPress={() => navigation.navigate("Notifications")}
               style={{ marginRight: 20 }}
             >
               <Ionicons color={Colors.green} name="mail" size={34} />

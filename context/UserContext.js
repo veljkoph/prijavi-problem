@@ -2,26 +2,24 @@ import React, { useEffect, useState, createContext } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import { BASE_URL } from "@env";
+import { useQuery } from "react-query";
 
 export const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState({ name: "test" });
-  const [isLoading, setIsLoading] = useState(false);
-
+  //USER HANDLE
+  const [user, setUser] = useState();
   const auth = async () => {
-    setIsLoading(true);
     try {
       const response = await axios.get(`${BASE_URL}/auth`, {
         headers: {
+          "Content-Type": "application/json",
           authorization: await AsyncStorage.getItem("token"),
         },
       });
-      setUser(response.data);
-      setIsLoading(false);
+      setUser(response.data.data);
     } catch (error) {
       setUser(false);
-      setIsLoading(false);
     }
   };
   useEffect(() => {
@@ -39,11 +37,8 @@ export const UserProvider = ({ children }) => {
       AsyncStorage.removeItem("token");
       setUser(false);
       auth()
-        .then(() => {
-          setIsLoading(false);
-        })
+        .then(() => {})
         .catch(() => {
-          setIsLoading(false);
           AsyncStorage.removeItem("token");
         });
     } catch (error) {
@@ -58,7 +53,6 @@ export const UserProvider = ({ children }) => {
         user,
         setUser,
         auth,
-        isLoading,
         logout,
       }}
     >
@@ -66,4 +60,3 @@ export const UserProvider = ({ children }) => {
     </UserContext.Provider>
   );
 };
-///

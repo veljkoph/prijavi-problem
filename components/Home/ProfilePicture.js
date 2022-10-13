@@ -23,7 +23,7 @@ const ProfilePicture = ({ navigation }) => {
       />
       <Image
         resizeMode="cover"
-        source={{ uri: user?.data?.image }}
+        source={{ uri: user?.image }}
         style={profileInfoStyle.image}
       />
     </TouchableOpacity>

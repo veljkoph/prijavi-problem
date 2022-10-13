@@ -3,6 +3,7 @@ import DrawerNavigator from "./DrawerNavigator/DrawerNavigator";
 import useAuth from "../hooks/useAuth";
 import AuthStack from "./Stacks/AuthStack";
 import { NavigationContainer } from "@react-navigation/native";
+import RootStackScreen from "./DrawerNavigator/RootStackScreen";
 
 const Navigation = () => {
   const { user } = useAuth();
@@ -10,7 +11,7 @@ const Navigation = () => {
   if (user)
     return (
       <NavigationContainer>
-        <DrawerNavigator />
+        <RootStackScreen />
       </NavigationContainer>
     );
   return (

@@ -19,7 +19,7 @@ const UserInfo = ({ navigation }) => {
       <View style={profileInfoStyle.upperContainer}>
         <ProfilePicture navigation={navigation} />
         <View style={profileInfoStyle.nameWrapper}>
-          <Text style={profileInfoStyle.name}>{user?.data?.name}</Text>
+          <Text style={profileInfoStyle.name}>{user?.name}</Text>
           <View style={profileInfoStyle.greenLine} />
         </View>
       </View>

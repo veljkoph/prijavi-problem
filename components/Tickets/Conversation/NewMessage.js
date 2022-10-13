@@ -23,7 +23,7 @@ const NewMessage = ({ ticketID }) => {
     <View style={conversationStyle.messageInputContainer}>
       <View style={conversationStyle.messageInputImgWrapper}>
         <Image
-          source={{ uri: user?.data?.image }}
+          source={{ uri: user?.image }}
           style={conversationStyle.messageInputImg}
           resizeMode="cover"
         />
