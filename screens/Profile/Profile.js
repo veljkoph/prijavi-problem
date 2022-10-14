@@ -22,6 +22,7 @@ import ChangeImage from "../../components/Settings/ChangeImage";
 import GreyInput from "../../components/Global/GreyInput";
 import pen from "../../assets/icons/pen.png";
 import { globalStyle } from "../../styles/global/globalStyle";
+import { Colors } from "../../constants/Colors";
 
 const Profile = () => {
   const { user, auth } = useAuth();
@@ -84,19 +85,6 @@ const Profile = () => {
                   touched={props.touched.address}
                   icon={false}
                 />
-
-                {isLoading && <ActivityIndicator size="large" />}
-
-                {isError ? (
-                  <Text style={globalStyle.errorText}>
-                    {error?.response?.data?.message}
-                  </Text>
-                ) : null}
-                {isSuccess ? (
-                  <Text style={globalStyle.successText}>
-                    {data?.data?.message}
-                  </Text>
-                ) : null}
                 <View style={globalStyle.rowSpaceAround}>
                   <TouchableOpacity
                     onPress={() => (
@@ -114,6 +102,20 @@ const Profile = () => {
                     <Text style={globalStyle.ctaBtnText}> Sačuvaj</Text>
                   </TouchableOpacity>
                 </View>
+                {isLoading && (
+                  <ActivityIndicator size="large" color={Colors.darkBlue} />
+                )}
+
+                {isError ? (
+                  <Text style={globalStyle.errorText}>
+                    {error?.response?.data?.message}
+                  </Text>
+                ) : null}
+                {isSuccess ? (
+                  <Text style={globalStyle.successText}>
+                    {data?.data?.message}
+                  </Text>
+                ) : null}
               </View>
             )}
           </Formik>

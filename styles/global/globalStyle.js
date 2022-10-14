@@ -59,7 +59,7 @@ export const globalStyle = StyleSheet.create({
   cancelBtn: {
     borderTopLeftRadius: 10,
     borderBottomLeftRadius: 10,
-    marginTop: 20,
+    marginBottom: 20,
     justifyContent: "center",
     alignItems: "center",
     flex: 0.4,
@@ -69,7 +69,7 @@ export const globalStyle = StyleSheet.create({
   },
   ctaBtn: {
     backgroundColor: Colors.green,
-    marginTop: 20,
+    marginBottom: 20,
     justifyContent: "center",
     alignItems: "center",
     flex: 0.4,
