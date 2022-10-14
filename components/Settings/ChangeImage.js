@@ -24,7 +24,7 @@ const ChangeImage = () => {
       formData.append("image", {
         uri: Platform.OS === "ios" ? res?.uri.replace("file://", "") : res?.uri,
         type: `image/${fileType}`,
-        name: `profilepicture${user?.data?.name}`,
+        name: `profilepicture${user?.name}`,
         //  base64: res?.base64,
       });
       axios
@@ -54,7 +54,7 @@ const ChangeImage = () => {
           resizeMode="cover"
           style={profileStyle.image}
           source={{
-            uri: newImage ? newImage.uri : user?.data?.image,
+            uri: newImage ? newImage.uri : user?.image,
           }}
         />
 

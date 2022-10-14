@@ -32,7 +32,10 @@ const UserInfo = ({ navigation }) => {
         </Text>
         <Text style={profileInfoStyle.messagesText}>
           <Ionicons color={Colors.lightGrey4} name="mail" size={22} /> Broj
-          nepročitanih poruka: <Text style={profileInfoStyle.redText}> 2</Text>
+          nepročitanih poruka:{" "}
+          <Text style={profileInfoStyle.redText}>
+            {user?.unread_notifications_count}
+          </Text>
         </Text>
       </View>
     </View>

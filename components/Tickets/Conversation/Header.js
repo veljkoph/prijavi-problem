@@ -12,7 +12,7 @@ const Header = () => {
       <Text style={conversationStyle.headerTitle}>DETALJI PRIJAVE </Text>
       <TouchableOpacity
         style={conversationStyle.headerBtn}
-        onPress={() => navigation.goBack()}
+        onPress={() => navigation.navigate("MyTickets")}
       >
         <Image source={require("../../../assets/icons/arrowLeft.png")} />
         <Text style={conversationStyle.headerSubTitle}>

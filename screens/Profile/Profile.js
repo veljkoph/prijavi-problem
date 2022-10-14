@@ -29,12 +29,11 @@ const Profile = () => {
   const { isLoading, isError, mutate, data, error, isSuccess } = useMutation(
     async (values) => {
       return axiosPost({ url: "/profile-update", values: values });
+    },
+    {
+      onSuccess: () => auth(),
     }
   );
-
-  useEffect(() => {
-    isSuccess && auth();
-  }, [isSuccess]);
 
   return (
     <View style={globalStyle.whiteBg}>
@@ -58,8 +57,8 @@ const Profile = () => {
             enableReinitialize={true}
             validationSchema={ProfileEditValidationSchema}
             initialValues={{
-              name: user?.data?.name,
-              address: user?.data?.address,
+              name: user?.name,
+              address: user?.address,
             }}
             onSubmit={(values) => {
               mutate(values);
@@ -101,8 +100,8 @@ const Profile = () => {
                 <View style={globalStyle.rowSpaceAround}>
                   <TouchableOpacity
                     onPress={() => (
-                      props.setFieldValue("address", user?.data?.address),
-                      props.setFieldValue("name", user?.data?.name)
+                      props.setFieldValue("address", user?.address),
+                      props.setFieldValue("name", user?.name)
                     )}
                     style={globalStyle.cancelBtn}
                   >

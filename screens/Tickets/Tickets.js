@@ -84,7 +84,7 @@ const Tickets = ({ navigation }) => {
             item={item}
             navigation={navigation}
             onPress={() =>
-              navigation.navigate("Conversations", {
+              navigation.push("Conversations", {
                 id: item.id,
               })
             }

@@ -1,9 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Image, Text, Touchable, TouchableOpacity } from "react-native";
+import { Image, TouchableOpacity } from "react-native";
 import { Colors } from "../../constants/Colors";
 import Notifications from "../../screens/Notifications/Notifications";
 import DrawerNavigator from "../DrawerNavigator/DrawerNavigator";
-import Navigation from "../Navigation";
 
 const RootStack = createNativeStackNavigator();
 
