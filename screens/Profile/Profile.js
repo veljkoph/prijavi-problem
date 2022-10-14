@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 //components
-import DarkLineInput from "../../components/Global/DarkLineinput";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Formik } from "formik";
 import {
@@ -13,7 +12,7 @@ import {
 //style
 import { profileStyle } from "../../styles/profile/profileStyle";
 //api
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation } from "react-query";
 import axiosPost from "../../services/axiosPost";
 import { ProfileEditValidationSchema } from "../../constants/validations/ProfileEditValidationSchema";
 //context

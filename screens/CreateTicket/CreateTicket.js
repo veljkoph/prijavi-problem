@@ -7,22 +7,22 @@ import { Platform, ScrollView, View } from "react-native";
 
 const CreateTicket = ({ navigation }) => {
   return (
-    <ScrollView
-      style={{ backgroundColor: "#fff", flex: 1 }}
-      showsVerticalScrollIndicator={false}
+    <KeyboardAwareScrollView
+      contentContainerStyle={createticketStyle.container}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      resetScrollToCoords={{ x: 0, y: 0 }}
+      scrollEnabled={true}
+      keyboardShouldPersistTaps="handled"
+      keyboardVerticalOffset={300}
     >
-      <KeyboardAwareScrollView
-        contentContainerStyle={createticketStyle.container}
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        resetScrollToCoords={{ x: 0, y: 0 }}
-        scrollEnabled={true}
-        keyboardShouldPersistTaps="handled"
-        keyboardVerticalOffset={Platform.OS === "ios" ? 80 : 70}
+      {/* <TicketsNearby /> */}
+      <ScrollView
+        style={{ backgroundColor: "#fff", flex: 1 }}
+        showsVerticalScrollIndicator={false}
       >
-        {/* <TicketsNearby /> */}
         <NewTicket />
-      </KeyboardAwareScrollView>
-    </ScrollView>
+      </ScrollView>
+    </KeyboardAwareScrollView>
   );
 };
 

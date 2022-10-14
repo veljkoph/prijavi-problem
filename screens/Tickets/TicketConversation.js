@@ -31,8 +31,8 @@ const TicketConversation = ({ route }) => {
   return (
     <KeyboardAvoidingView
       style={conversationStyle.container}
-      behavior={Platform.select({ ios: "padding" })}
-      keyboardVerticalOffset={headerHeight}
+      //  keyboardVerticalOffset={headerHeight}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <FlatList
         showsVerticalScrollIndicator={false}
@@ -47,9 +47,6 @@ const TicketConversation = ({ route }) => {
             <TiceketDetails ticket={ticket} />
           </>
         }
-        ListHeaderComponentStyle={{
-          paddingHorizontal: 0,
-        }}
         contentContainerStyle={{
           paddingBottom: 150,
           paddingHorizontal: 20,
@@ -61,7 +58,6 @@ const TicketConversation = ({ route }) => {
           <Message message={item} address={ticket?.address} />
         )}
       />
-
       <NewMessage
         setUserMessage={setUserMessage}
         userMessage={userMessage}

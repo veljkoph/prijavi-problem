@@ -4,7 +4,6 @@ import {
   ActivityIndicator,
   View,
   StyleSheet,
-  Text,
 } from "react-native";
 import { useFonts } from "expo-font";
 import { UserProvider } from "./context/UserContext";
@@ -16,8 +15,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import * as Notifications from "expo-notifications";
 import * as Device from "expo-device";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import Home from "./screens/Home/Home";
-import HomeStack from "./navigation/Stacks/HomeStack";
+import NoInternet from "./screens/Global/NoInternet";
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -39,7 +37,7 @@ export default function App() {
     "Roboto-Bold": require("./assets/font/Roboto-Bold.ttf"),
   });
   //App loading splash screen hide
-  const [appIsReady, setAppIsReady] = useState(true);
+  const [appIsReady, setAppIsReady] = useState(false);
   useEffect(() => {
     const prepare = async () => {
       try {
@@ -121,26 +119,22 @@ export default function App() {
       };
     }
   }, []);
-  if (!appIsReady) {
-    return <ActivityIndicator />;
-  }
+  // if (!appIsReady) {
+  //   return <LeafLoader />;
+  // }
   if (!loaded) return null;
-  // if (!netinfo?.isInternetReachable) return <NoInternet />;
+  if (!netinfo?.isInternetReachable) return <NoInternet />;
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle="dark-content" translucent />
-
+    <QueryClientProvider client={queryClient}>
       <UserProvider>
-        <QueryClientProvider client={queryClient}>
-          <Navigation />
-        </QueryClientProvider>
+        <Navigation />
       </UserProvider>
-    </View>
+    </QueryClientProvider>
   );
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    //  flex: 1,
     backgroundColor: "#fff",
   },
 });

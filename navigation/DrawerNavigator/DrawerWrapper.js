@@ -6,9 +6,10 @@ import {
 } from "@react-navigation/drawer";
 import useAuth from "../../hooks/useAuth";
 import { alertPrompt } from "../../functions/alertPrompt";
+import useLogout from "../../hooks/user/useLogout";
 
 const DrawerWrapper = (props) => {
-  const { logout } = useAuth();
+  const { mutate: logout } = useLogout();
   return (
     <View
       style={{

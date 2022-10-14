@@ -5,6 +5,7 @@ export const conversationStyle = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
     flex: 1,
+    height: "100%",
   },
   headerTitle: {
     fontSize: 22,

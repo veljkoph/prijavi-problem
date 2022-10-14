@@ -1,15 +1,11 @@
 import { View, Text, RefreshControl, FlatList } from "react-native";
 import React from "react";
-import { LinearGradient } from "expo-linear-gradient";
-import { Gradient } from "../../constants/Gradients";
 import { informationsStyle } from "../../styles/home/informationsStyle";
 import { useInfiniteQuery } from "react-query";
 import { BASE_URL } from "@env";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import InformationCard from "./InformationCard";
 import DotLoader from "../Animations/DotLoader";
-import UserInfo from "./UserInfo";
-import { globalStyle } from "../../styles/global/globalStyle";
 
 const Informations = ({ navigation }) => {
   const fetchInformations = async ({ pageParam = 1 }) => {

@@ -9,7 +9,7 @@ export const globalStyle = StyleSheet.create({
     backgroundColor: "#fff",
   },
   shadow1: {
-    elevation: 3,
+    elevation: 2,
     shadowColor: Colors.greenDarkest,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,

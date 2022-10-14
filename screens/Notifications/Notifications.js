@@ -3,6 +3,8 @@ import React from "react";
 import useNotifications from "../../hooks/notifications/useNotifications";
 import Notification from "../../components/Notifications/Notification";
 import { globalStyle } from "../../styles/global/globalStyle";
+import NoNotifications from "../../components/Notifications/NoNotifications";
+import DotLoader from "../../components/Animations/DotLoader";
 
 const Notifications = () => {
   const {
@@ -17,13 +19,7 @@ const Notifications = () => {
       <FlatList
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
-        // ListEmptyComponent={
-        //   !isLoading ? (
-        //     <Empty text="Još uvek nema prijava, novu prijavu možete dodati klikom na prijavi problem" />
-        //   ) : (
-        //     <DotLoader />
-        //   )
-        // }
+        ListEmptyComponent={!isLoading ? <NoNotifications /> : <DotLoader />}
         ListHeaderComponentStyle={{
           paddingVertical: 20,
         }}

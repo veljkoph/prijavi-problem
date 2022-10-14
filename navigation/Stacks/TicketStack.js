@@ -16,7 +16,7 @@ const TicketStack = () => {
         name="MyTickets"
         component={Tickets}
         options={{
-          headerBackVisible: true,
+          headerBackVisible: false,
           title: "Moje prijave",
           headerShown: false,
         }}

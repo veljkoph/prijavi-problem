@@ -38,7 +38,7 @@ const Tickets = ({ navigation }) => {
   });
 
   return (
-    <View style={{ backgroundColor: "#fff" }}>
+    <View style={globalStyle.whiteBg}>
       <FlatList
         refreshControl={
           <RefreshControl

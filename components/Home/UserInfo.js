@@ -11,7 +11,7 @@ const UserInfo = ({ navigation }) => {
   const { user } = useAuth();
 
   return (
-    <View style={[globalStyle.shadow1, profileInfoStyle.container]}>
+    <View style={[profileInfoStyle.container]}>
       <Image
         source={require("../../assets/icons/profileicon.png")}
         style={profileInfoStyle.profileIcon}

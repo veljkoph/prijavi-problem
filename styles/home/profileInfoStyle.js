@@ -10,14 +10,14 @@ export const profileInfoStyle = StyleSheet.create({
     paddingBottom: 20,
     borderRadius: 15,
     marginTop: 10,
-    shadowColor: Colors.grey,
-    shadowOffset: {
-      width: 0,
-      height: 7,
-    },
-    shadowOpacity: 0.4,
-    shadowRadius: 7,
-    elevation: 7,
+    // shadowColor: Colors.grey,
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 7,
+    // },
+    // shadowOpacity: 0.4,
+    // shadowRadius: 7,
+    // elevation: 7,
   },
   profileIcon: {
     position: "absolute",

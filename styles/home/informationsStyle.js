@@ -5,6 +5,7 @@ export const informationsStyle = StyleSheet.create({
   container: {
     flexDirection: "column",
     backgroundColor: "#fff",
+    flex: 1,
   },
   title: {
     fontSize: 22,
