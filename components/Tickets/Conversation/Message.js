@@ -16,7 +16,7 @@ const Message = ({ message, address }) => {
       ) : (
         <Image
           resizeMode="cover"
-          source={{ uri: user?.data?.image }}
+          source={{ uri: user?.image }}
           style={conversationStyle.messageImage}
         />
       )}
@@ -27,7 +27,9 @@ const Message = ({ message, address }) => {
               Operater za komunikaciju
             </Text>
           ) : (
-            <Text style={conversationStyle.messageSender}>Vi</Text>
+            <Text style={conversationStyle.messageSender}>
+              Vi: {user?.name}
+            </Text>
           )}
 
           <Text style={conversationStyle.messageSubtitle}>

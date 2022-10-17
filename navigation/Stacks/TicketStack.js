@@ -1,4 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Text } from "react-native";
+import Header from "../../components/Global/Header";
 import EditTicket from "../../screens/Tickets/EditTicket";
 import TicketConversation from "../../screens/Tickets/TicketConversation";
 import Tickets from "../../screens/Tickets/Tickets";
@@ -9,7 +11,7 @@ const TicketStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerShown: false,
+        headerShown: true,
       }}
     >
       <Stack.Screen
@@ -18,11 +20,19 @@ const TicketStack = () => {
         options={{
           headerBackVisible: false,
           title: "Moje prijave",
-          headerShown: false,
+          header: () => <Header />,
         }}
       />
       <Stack.Screen name="EditTicket" component={EditTicket} />
-      <Stack.Screen name="Conversations" component={TicketConversation} />
+      <Stack.Screen
+        name="Conversations"
+        component={TicketConversation}
+        options={{
+          headerBackVisible: false,
+          title: "Moje prijave",
+          headerShown: false,
+        }}
+      />
     </Stack.Navigator>
   );
 };

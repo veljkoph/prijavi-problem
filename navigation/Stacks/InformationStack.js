@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Header from "../../components/Global/Header";
 import Informations from "../../components/Home/Informations";
 import Home from "../../screens/Home/Home";
 import Information from "../../screens/Home/Information";
@@ -9,9 +10,11 @@ const InformationStack = () => {
   return (
     <Stack.Navigator
       initialRouteName="Informations"
-      screenOptions={{
-        headerShown: false,
-      }}
+      screenOptions={
+        {
+          // headerShown: false,
+        }
+      }
     >
       <Stack.Screen
         name="Informations"
@@ -19,7 +22,8 @@ const InformationStack = () => {
         options={{
           headerBackVisible: true,
           title: "Informacije",
-          headerBackButtonMenuEnabled: true,
+
+          header: () => <Header />,
         }}
       />
       <Stack.Screen
@@ -28,6 +32,7 @@ const InformationStack = () => {
         options={{
           headerBackVisible: true,
           title: "Informacija",
+          headerShown: false,
         }}
       />
     </Stack.Navigator>

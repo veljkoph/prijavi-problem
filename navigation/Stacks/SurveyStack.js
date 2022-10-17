@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Header from "../../components/Global/Header";
 import Survey from "../../screens/Survey/Survey";
 
 import Surveys from "../../screens/Survey/Surveys";
@@ -9,9 +10,11 @@ const Stack = createNativeStackNavigator();
 const SurveyStack = () => {
   return (
     <Stack.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}
+      screenOptions={
+        {
+          // headerShown: false,
+        }
+      }
     >
       <Stack.Screen
         name="SurveysHome"
@@ -19,6 +22,8 @@ const SurveyStack = () => {
         options={{
           headerBackVisible: true,
           title: "Ankete",
+
+          header: () => <Header />,
         }}
       />
       <Stack.Screen
@@ -27,6 +32,7 @@ const SurveyStack = () => {
         options={{
           headerBackVisible: true,
           title: "Ankete",
+          headerShown: false,
         }}
       />
     </Stack.Navigator>

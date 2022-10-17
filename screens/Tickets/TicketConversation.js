@@ -1,5 +1,11 @@
-import { KeyboardAvoidingView, FlatList, Text, View } from "react-native";
-import React, { useState } from "react";
+import {
+  KeyboardAvoidingView,
+  FlatList,
+  Text,
+  View,
+  SafeAreaView,
+} from "react-native";
+import React, { useRef, useState } from "react";
 import { conversationStyle } from "../../styles/tickets/coversationStyle";
 import { useHeaderHeight } from "@react-navigation/elements";
 import Message from "../../components/Tickets/Conversation/Message";
@@ -21,6 +27,7 @@ const TicketConversation = ({ route }) => {
     isLoading,
     isError,
   } = useTicketFetch(route?.params?.id);
+  const listRef = useRef();
   if (isLoading)
     return (
       <View style={globalStyle.center}>
@@ -29,41 +36,45 @@ const TicketConversation = ({ route }) => {
     );
   if (isError) return <Error />;
   return (
-    <KeyboardAvoidingView
-      style={conversationStyle.container}
-      //  keyboardVerticalOffset={headerHeight}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-    >
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}
-        keyExtractor={(item, index) => index.toString()}
-        // ListEmptyComponent={
-        //   !isLoading ? <NoData /> : <ActivityIndicator size="large" />
-        // }
-        ListHeaderComponent={
-          <>
-            <Header />
-            <TiceketDetails ticket={ticket} />
-          </>
-        }
-        contentContainerStyle={{
-          paddingBottom: 150,
-          paddingHorizontal: 20,
-          paddingVertical: 10,
-        }}
-        onEndReachedThreshold={0}
-        data={ticket?.activities}
-        renderItem={({ item }) => (
-          <Message message={item} address={ticket?.address} />
-        )}
-      />
-      <NewMessage
-        setUserMessage={setUserMessage}
-        userMessage={userMessage}
-        ticketID={ticket?.id}
-      />
-    </KeyboardAvoidingView>
+    <SafeAreaView style={globalStyle.safeArea}>
+      <KeyboardAvoidingView
+        style={conversationStyle.container}
+        //  keyboardVerticalOffset={headerHeight}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+      >
+        <FlatList
+          ref={listRef}
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={(item, index) => index.toString()}
+          // ListEmptyComponent={
+          //   !isLoading ? <NoData /> : <ActivityIndicator size="large" />
+          // }
+          ListHeaderComponent={
+            <>
+              <Header />
+              <TiceketDetails ticket={ticket} />
+            </>
+          }
+          contentContainerStyle={{
+            paddingBottom: 20,
+            paddingHorizontal: 20,
+            paddingVertical: 10,
+          }}
+          onEndReachedThreshold={0}
+          data={ticket?.activities}
+          renderItem={({ item }) => (
+            <Message message={item} address={ticket?.address} />
+          )}
+        />
+        <NewMessage
+          setUserMessage={setUserMessage}
+          userMessage={userMessage}
+          ticketID={ticket?.id}
+          listRef={listRef}
+        />
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 };
 

@@ -14,7 +14,7 @@ const InformationCard = ({ item, navigation }) => {
       </View>
       <Image
         style={informationsStyle.image}
-        resizeMode="contain"
+        resizeMode="cover"
         source={{
           uri: item?.image,
         }}

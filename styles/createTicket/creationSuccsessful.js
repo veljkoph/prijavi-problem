@@ -35,6 +35,12 @@ export const creationSuccsessfulStyle = StyleSheet.create({
     fontFamily: "Roboto-Medium",
     color: Colors.darkBlue,
   },
+  greenText: {
+    fontFamily: "Roboto-Regular",
+    color: Colors.green,
+    fontSize: 24,
+    textAlign: "center",
+  },
   dotsLeft: {
     position: "absolute",
     height: 110,
@@ -62,5 +68,6 @@ export const creationSuccsessfulStyle = StyleSheet.create({
     height: 250,
     aspectRatio: 1,
     marginTop: 15,
+    marginBottom: 20,
   },
 });

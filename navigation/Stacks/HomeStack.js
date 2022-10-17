@@ -1,4 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Text } from "react-native";
+import Header from "../../components/Global/Header";
 import Home from "../../screens/Home/Home";
 import Information from "../../screens/Home/Information";
 
@@ -11,7 +13,7 @@ const HomeStack = () => {
         name="Home"
         component={Home}
         options={{
-          headerShown: false,
+          header: () => <Header />,
         }}
       />
     </Stack.Navigator>

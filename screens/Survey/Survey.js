@@ -1,4 +1,10 @@
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  SafeAreaView,
+} from "react-native";
 import React from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import axiosFetch from "../../services/axiosFetch";
@@ -34,33 +40,39 @@ const Survey = ({ route, navigation }) => {
   });
   if (isLoading) return <LeafLoader />;
   return (
-    <View style={surveysStyle.container}>
-      <View style={informationsStyle.separator} />
-      <Text style={informationsStyle.title}>{data?.data?.data?.question}</Text>
-      <Text style={informationsStyle.subTitle}>{data?.data?.data?.title}</Text>
-      <TouchableOpacity
-        style={globalStyle.headerBtn}
-        onPress={() => navigation.navigate("SurveysHome")}
-      >
-        <Image
-          source={require("../../assets/icons/arrowLeft.png")}
-          style={globalStyle.headerArrow}
-        />
-        <Text style={globalStyle.headerSubTitle}>Nazad na sve ankete</Text>
-      </TouchableOpacity>
-      {data?.data?.data?.answers?.map((item) => (
-        <SurveyOption
-          surveyId={data?.data?.data?.id}
-          answerId={item.id}
-          title={item.title}
-          key={item.id}
-          hasVoted={data?.data?.data?.has_answered}
-          percentage={item.percentage}
-          mutate={mutate}
-        />
-      ))}
-      <Text style={surveysStyle.message}>{message?.data?.message}</Text>
-    </View>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#FFF" }}>
+      <View style={surveysStyle.container}>
+        <View style={informationsStyle.separator} />
+        <Text style={informationsStyle.title}>
+          {data?.data?.data?.question}
+        </Text>
+        <Text style={informationsStyle.subTitle}>
+          {data?.data?.data?.title}
+        </Text>
+        <TouchableOpacity
+          style={globalStyle.headerBtn}
+          onPress={() => navigation.navigate("SurveysHome")}
+        >
+          <Image
+            source={require("../../assets/icons/arrowLeft.png")}
+            style={globalStyle.headerArrow}
+          />
+          <Text style={globalStyle.headerSubTitle}>Nazad na sve ankete</Text>
+        </TouchableOpacity>
+        {data?.data?.data?.answers?.map((item) => (
+          <SurveyOption
+            surveyId={data?.data?.data?.id}
+            answerId={item.id}
+            title={item.title}
+            key={item.id}
+            hasVoted={data?.data?.data?.has_answered}
+            percentage={item.percentage}
+            mutate={mutate}
+          />
+        ))}
+        <Text style={surveysStyle.message}>{message?.data?.message}</Text>
+      </View>
+    </SafeAreaView>
   );
 };
 

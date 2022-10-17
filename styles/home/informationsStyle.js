@@ -69,6 +69,7 @@ export const informationsStyle = StyleSheet.create({
     borderRadius: 10,
     alignSelf: "center",
     zIndex: 9,
+    backgroundColor: "white",
   },
   backBtn: {
     height: 30,

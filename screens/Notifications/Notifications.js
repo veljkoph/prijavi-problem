@@ -5,6 +5,7 @@ import Notification from "../../components/Notifications/Notification";
 import { globalStyle } from "../../styles/global/globalStyle";
 import NoNotifications from "../../components/Notifications/NoNotifications";
 import DotLoader from "../../components/Animations/DotLoader";
+import Header from "../../components/Notifications/Header";
 
 const Notifications = () => {
   const {
@@ -26,6 +27,7 @@ const Notifications = () => {
         contentContainerStyle={{
           paddingBottom: 24,
           paddingHorizontal: 20,
+          paddingTop: 90,
           backgroundColor: "#Fff",
           flex: 1,
         }}

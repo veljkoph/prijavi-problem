@@ -13,6 +13,7 @@ import DrawerWrapper from "./DrawerWrapper";
 import CreateTicketStack from "../Stacks/CreateTicketStack";
 import Profile from "../../screens/Profile/Profile";
 import HeaderMessageBadge from "../../components/Notifications/HeaderMessageBadge";
+import Header from "../../components/Global/Header";
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
@@ -23,26 +24,9 @@ const DrawerNavigator = () => {
         tabBarStyle: {
           backgroundColor: Colors.white,
         },
-        headerShown: true,
+        headerShown: false,
         headerTitle: "",
         headerShadowVisible: false,
-        headerLeft: () => (
-          <Image
-            source={require("../../assets/images/prijavi.png")}
-            style={{ marginLeft: 20 }}
-          />
-        ),
-        headerRight: () => (
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <HeaderMessageBadge />
-            <TouchableOpacity
-              onPress={() => navigation.openDrawer()}
-              style={{ marginRight: 20 }}
-            >
-              <Ionicons color={Colors.green} name="reorder-three" size={38} />
-            </TouchableOpacity>
-          </View>
-        ),
         drawerPosition: "right",
         drawerActiveTintColor: Colors.white,
         drawerActiveBackgroundColor: Colors.darkBlue,
@@ -145,6 +129,8 @@ const DrawerNavigator = () => {
             fontSize: 17,
             fontFamily: "Roboto-Regular",
           },
+          header: () => <Header />,
+          headerShown: true,
         }}
       />
       {/* <Drawer.Screen

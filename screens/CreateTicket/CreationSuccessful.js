@@ -35,6 +35,10 @@ const CreationSuccessful = () => {
         {"\n"}
         Uskoro će Vas kontaktirati odgovorno lice.
       </Text>
+      <Text style={creationSuccsessfulStyle.greenText}>
+        Hvala Vam {"\n"}
+        što brinete!
+      </Text>
       <Image
         style={creationSuccsessfulStyle.banner}
         source={require("../../assets/images/people.png")}

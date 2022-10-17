@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Image, TouchableOpacity } from "react-native";
+import Header from "../../components/Notifications/Header";
 import { Colors } from "../../constants/Colors";
 import Notifications from "../../screens/Notifications/Notifications";
 import DrawerNavigator from "../DrawerNavigator/DrawerNavigator";
@@ -61,23 +62,14 @@ const RootStackScreen = () => {
           presentation: "modal",
           headerShown: true,
           title: "Obaveštenja",
-          headerStyle: {
-            backgroundColor: Colors.green,
-          },
-          headerTitleStyle: {
-            color: "#FFF",
-            fontFamily: "Roboto-Medium",
-            fontSize: 18,
-          },
+          header: () => <Header />,
+          // headerStyle: {
+          //   backgroundColor: Colors.green,
+          // },
 
-          headerRight: () => (
-            <TouchableOpacity onPress={() => navigation.pop()}>
-              <Image
-                source={require("../../assets/icons/close.png")}
-                style={{ height: 30, width: 30 }}
-              />
-            </TouchableOpacity>
-          ),
+          // headerRight: () => (
+          //
+          // ),
         })}
       />
     </RootStack.Navigator>

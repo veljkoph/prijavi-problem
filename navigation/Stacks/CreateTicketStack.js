@@ -1,8 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Header from "../../components/Global/Header";
 import CreateTicket from "../../screens/CreateTicket/CreateTicket";
 import CreationSuccessful from "../../screens/CreateTicket/CreationSuccessful";
-import Home from "../../screens/Home/Home";
-import Information from "../../screens/Home/Information";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,7 +12,8 @@ const CreateTicketStack = () => {
         name="CreateTicketScreen"
         component={CreateTicket}
         options={{
-          headerShown: false,
+          headerShown: true,
+          header: () => <Header />,
         }}
       />
       <Stack.Screen

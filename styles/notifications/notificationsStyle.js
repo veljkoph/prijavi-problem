@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Platform, StatusBar, StyleSheet } from "react-native";
 import { Colors } from "../../constants/Colors";
 
 export const notificationsStyle = StyleSheet.create({
@@ -32,5 +32,18 @@ export const notificationsStyle = StyleSheet.create({
     position: "absolute",
     top: 15,
     right: 15,
+  },
+  header: {
+    flexDirection: "row",
+    height: 80 + (Platform.OS === "android" ? StatusBar.currentHeight : 0),
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: Colors.green,
+    paddingHorizontal: 20,
+  },
+  headerTitle: {
+    color: "#FFF",
+    fontFamily: "Roboto-Medium",
+    fontSize: 18,
   },
 });

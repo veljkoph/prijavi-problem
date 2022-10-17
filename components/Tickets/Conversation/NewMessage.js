@@ -8,7 +8,7 @@ import useNewMessage from "../../../hooks/tickets/useNewMessage";
 import LeafLoader from "../../../screens/Global/LeafLoader";
 import DotLoader from "../../Animations/DotLoader";
 
-const NewMessage = ({ ticketID }) => {
+const NewMessage = ({ ticketID, listRef }) => {
   const { user } = useAuth();
   const [message, setMessage] = useState("");
 
@@ -20,7 +20,10 @@ const NewMessage = ({ ticketID }) => {
 
   if (isLoading) return <DotLoader />;
   return (
-    <View style={conversationStyle.messageInputContainer}>
+    <View
+      style={conversationStyle.messageInputContainer}
+      onLayout={() => listRef.current.scrollToEnd()}
+    >
       <View style={conversationStyle.messageInputImgWrapper}>
         <Image
           source={{ uri: user?.image }}
